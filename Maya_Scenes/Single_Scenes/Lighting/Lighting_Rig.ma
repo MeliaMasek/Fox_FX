@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: Lighting_Rig.ma
-//Last modified: Sun, Nov 24, 2024 04:56:10 PM
+//Last modified: Mon, Dec 02, 2024 11:36:08 AM
 //Codeset: 1252
 file -rdi 1 -ns "Hermit_Crab_Rig_New" -rfn "Hermit_Crab_Rig_NewRN" -op "v=0;"
 		 -typ "mayaAscii" "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Models/HermitCrab/Hermit_Crab_Ven_Rig.ma";
@@ -31,7 +31,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202208031415-1dee56799d";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "4B7B687E-4B6A-767B-6248-0E87F4E38975";
+fileInfo "UUID" "33DC2168-48FB-AB2D-D709-8B95641592B5";
 createNode transform -s -n "persp";
 	rename -uid "06D20F71-4E11-86F7-2107-AAB30961FAE9";
 	setAttr ".v" no;
@@ -158,6 +158,7 @@ createNode directionalLight -n "directionalLightShape1" -p "directionalLight1";
 	setAttr ".rsEnableLegacyNonAreaLightIntensity" no;
 	setAttr ".rsEnableLegacySoftShadowTechnique" no;
 	setAttr ".ai_exposure" 2.25;
+	setAttr ".ai_angle" 2.5;
 createNode transform -n "Reference_Assets_LEAVE_HIDDEN";
 	rename -uid "E6CA5147-476B-E275-80C4-DA8B305D4BDE";
 	setAttr ".v" no;
@@ -24228,13 +24229,13 @@ createNode mesh -n "Water_PlaneShape" -p "Water_Plane";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode fosterParent -n "Hermit_Crab_Rig_NewRNfosterParent1";
-	rename -uid "2DB87634-4A0A-7813-C6F3-17AA4AAD1C2A";
+	rename -uid "8FA60B20-4C78-CFFA-48C0-53A144FC4618";
 createNode nurbsCurve -n "Transform_CtrlShapeDeformed" -p "Hermit_Crab_Rig_NewRNfosterParent1";
 	rename -uid "95B059B5-499A-87DD-D7A7-B8BD0D341601";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
 createNode fosterParent -n "IslandTest2RNfosterParent1";
-	rename -uid "6404D399-4AC4-41A7-9EF8-26AFB73465DA";
+	rename -uid "F3909FCF-43B0-83A4-BCA9-94B90B89B4D0";
 createNode mesh -n "VI2ShapeOrig" -p "IslandTest2RNfosterParent1";
 	rename -uid "D42BAA34-4112-7E3B-3C10-3FAF2E8E11CA";
 	setAttr -k off ".v";
@@ -35377,7 +35378,7 @@ createNode mesh -n "VI2ShapeOrig" -p "IslandTest2RNfosterParent1";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "8890E1FF-4F64-4772-328A-1892F2282341";
+	rename -uid "F6A73E6E-4343-47C3-A5D0-D9B0646DC668";
 	setAttr -s 18 ".lnk";
 	setAttr -s 18 ".slnk";
 createNode RedshiftOptions -s -n "redshiftOptions";
@@ -35406,14 +35407,14 @@ createNode RedshiftPostEffects -n "defaultRedshiftPostEffects";
 	setAttr -s 2 ".cb[1]" -type "float2" 1 1;
 	setAttr -s 2 ".cl[1]" -type "float2" 1 1;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "18032DDC-48A6-57D7-FC49-CBB623DBDE5F";
+	rename -uid "52BD4D3B-4CF8-2631-32F0-A0838637C98A";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 4 0 1 2 3 ;
 	setAttr -s 4 ".bspr";
 	setAttr -s 4 ".obsv";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "F372C62C-4A40-0C8A-0393-3B85CFB13716";
+	rename -uid "FAC0CCBD-4658-C61C-F195-5CBFB1F727F9";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "A37B9BFA-425D-D02A-FB6E-178C7118877C";
+	rename -uid "53E45C25-4A4A-8BD3-891D-EC94BC99456F";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
@@ -35421,7 +35422,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "70BB9F69-4A73-B45F-A011-0591A599AC2E";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "989DA3EB-42E4-4601-5137-8B963F2FD31E";
+	rename -uid "EA1C37EC-4BEC-45DD-3F8C-99994057B80D";
 	setAttr -s 9 ".rlmi[1:8]"  1 2 3 4 5 6 7 8;
 	setAttr -s 8 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
@@ -45820,10 +45821,10 @@ createNode reference -n "Palm_TreeRN";
 		
 		2 "Palm_Tree:Whole_TrunkSG" "aiCustomAOVs[5].aovName" " -type \"string\" \"AO\""
 		
-		3 "|Reference_Assets_LEAVE_HIDDEN|Palm_Tree_Asset|Palm_Tree:Many_Leafs|Palm_Tree:Many_LeafsShape.instObjGroups" 
-		"Palm_Tree:Many_LeafsSG.dagSetMembers" "-na"
 		3 "|Reference_Assets_LEAVE_HIDDEN|Palm_Tree_Asset|Palm_Tree:Whole_Trunk|Palm_Tree:Whole_TrunkShape.instObjGroups" 
 		"Palm_Tree:Whole_TrunkSG.dagSetMembers" "-na"
+		3 "|Reference_Assets_LEAVE_HIDDEN|Palm_Tree_Asset|Palm_Tree:Many_Leafs|Palm_Tree:Many_LeafsShape.instObjGroups" 
+		"Palm_Tree:Many_LeafsSG.dagSetMembers" "-na"
 		5 3 "Palm_TreeRN" "|Reference_Assets_LEAVE_HIDDEN|Palm_Tree_Asset|Palm_Tree:Whole_Trunk|Palm_Tree:Whole_TrunkShape.instObjGroups" 
 		"Palm_TreeRN.placeHolderList[1]" "Palm_Tree:Whole_TrunkSG.dsm"
 		5 3 "Palm_TreeRN" "|Reference_Assets_LEAVE_HIDDEN|Palm_Tree_Asset|Palm_Tree:Many_Leafs|Palm_Tree:Many_LeafsShape.instObjGroups" 
@@ -48004,13 +48005,13 @@ connectAttr "groupId13.id" "ExplodedShape.iog.og[0].gid";
 connectAttr "tweakSet2.mwc" "ExplodedShape.iog.og[0].gco";
 connectAttr "tweak2.og[0]" "ExplodedShape.i";
 connectAttr "tweak2.vl[0].vt[0]" "ExplodedShape.twl";
+connectAttr "Flag_Asset_visibility.o" "Flag_Asset.v";
 connectAttr "Flag_Asset_translateX.o" "Flag_Asset.tx";
 connectAttr "Flag_Asset_translateY.o" "Flag_Asset.ty";
 connectAttr "Flag_Asset_translateZ.o" "Flag_Asset.tz";
 connectAttr "Flag_Asset_rotateX.o" "Flag_Asset.rx";
 connectAttr "Flag_Asset_rotateY.o" "Flag_Asset.ry";
 connectAttr "Flag_Asset_rotateZ.o" "Flag_Asset.rz";
-connectAttr "Flag_Asset_visibility.o" "Flag_Asset.v";
 connectAttr "Locked_Items.di" "Water_Plane.do";
 connectAttr "polyPlane1.out" "Water_PlaneShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
