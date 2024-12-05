@@ -1,9 +1,9 @@
 //Maya ASCII 2022 scene
 //Name: Anim_Lightning.ma
-//Last modified: Sun, Dec 01, 2024 06:52:00 PM
+//Last modified: Wed, Dec 04, 2024 11:01:07 PM
 //Codeset: 1252
 file -rdi 1 -ns "Main_Scene" -rfn "Main_SceneRN" -op "v=0;" -typ "mayaAscii"
-		 "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Main_Scene.ma";
+		 "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Main_Scene.ma";
 file -rdi 2 -ns "Hermit_Crab_Rig_New" -rfn "Main_Scene:Hermit_Crab_Rig_NewRN"
 		 -op "v=0;" -typ "mayaAscii" "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Models/HermitCrab/Hermit_Crab_Ven_Rig.ma";
 file -rdi 2 -ns "Palm_Tree" -rfn "Main_Scene:Palm_TreeRN" -op "fbx" -typ "mayaAscii"
@@ -12,12 +12,28 @@ file -rdi 2 -ns "IslandTest2" -rfn "Main_Scene:IslandTest2RN" -op "v=0;" -typ
 		 "mayaAscii" "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Models/Island/Island.ma";
 file -rdi 2 -ns "Flag" -rfn "Main_Scene:FlagRN" -op "v=0;" -typ "mayaAscii"
 		 "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Models/Flag/Flag.ma";
-file -r -ns "Main_Scene" -dr 1 -rfn "Main_SceneRN" -op "v=0;" -typ "mayaAscii" "C:/Users/Melia/Gitrepo/Fox_FX/Maya_Scenes//Main_Scene.ma";
+file -rdi 1 -ns "Lighting_Rig" -rfn "Lighting_RigRN" -op "v=0;" -typ "mayaAscii"
+		 "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Single_Scenes/Lighting/Lighting_Rig.ma";
+file -rdi 2 -ns "Hermit_Crab_Rig_New" -rfn "Lighting_Rig:Hermit_Crab_Rig_NewRN"
+		 -op "v=0;" -typ "mayaAscii" "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Models/HermitCrab/Hermit_Crab_Ven_Rig.ma";
+file -rdi 2 -ns "Palm_Tree" -rfn "Lighting_Rig:Palm_TreeRN" -op "fbx" -typ "mayaAscii"
+		 "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Models/PalmTree/Palm_Tree.ma";
+file -rdi 2 -ns "IslandTest2" -rfn "Lighting_Rig:IslandTest2RN" -op "v=0;" 
+		-typ "mayaAscii" "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Models/Island/Island.ma";
+file -rdi 2 -ns "Flag" -rfn "Lighting_Rig:FlagRN" -op "v=0;" -typ "mayaAscii"
+		 "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Models/Flag/Flag.ma";
+file -r -ns "Main_Scene" -dr 1 -rfn "Main_SceneRN" -op "v=0;" -typ "mayaAscii" "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Main_Scene.ma";
+file -r -ns "Lighting_Rig" -dr 1 -rfn "Lighting_RigRN" -op "v=0;" -typ "mayaAscii"
+		 "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Single_Scenes/Lighting/Lighting_Rig.ma";
 requires maya "2022";
 requires -nodeType "RedshiftOptions" -nodeType "RedshiftPostEffects" "redshift4maya" "3.6.04";
 requires "stereoCamera" "10.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
-		 "mtoa" "5.0.0.4";
+requires -nodeType "aiOptions" -nodeType "aiAOV" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter"
+		 -nodeType "aiStandardSurface" -nodeType "aiShadowMatte" "mtoa" "5.0.0.4";
+requires -nodeType "simpleSelector" -nodeType "renderSetupLayer" -nodeType "renderSetup"
+		 -nodeType "collection" -nodeType "renderSettingsCollection" -nodeType "aovCollection"
+		 -nodeType "aovChildCollection" -nodeType "absOverride" -nodeType "absUniqueOverride"
+		 -nodeType "materialOverride" -nodeType "arnoldAOVChildSelector" "renderSetup.py" "1.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -25,18 +41,19 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202303271415-baa69b5798";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19045)";
-fileInfo "UUID" "8F8D844C-4A09-FB02-C231-D7879EB7DB81";
+fileInfo "UUID" "34A104C4-4E69-58C4-1BA6-F9A8F611C72F";
 createNode transform -s -n "persp";
 	rename -uid "9D50560C-4AC8-3EDA-A4B4-D99B24B95E99";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 67.155265077637509 22.848465151115846 4.4531752744684727 ;
-	setAttr ".r" -type "double3" -7.1999999999989681 446.79999999631667 0 ;
+	setAttr ".t" -type "double3" 199.6958698905579 52.505955048624969 -19.869210592922645 ;
+	setAttr ".r" -type "double3" -11.400000000002242 457.59999999630776 0 ;
 	setAttr ".rpt" -type "double3" -1.504053644746112e-15 1.4218167182728426e-16 -1.8617768060267457e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "C57C7EEB-46C3-5AD6-1C2E-AAB61A9B4E4B";
 	setAttr -k off ".v" no;
+	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 35.39134985354255;
+	setAttr ".coi" 172.48639564540204;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -1048,14 +1065,21 @@ createNode mesh -n "Flag_BannerShape" -p "Flag_Banner";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "transform1";
+	rename -uid "C8993372-49EF-2C0C-A4D3-DAB2A2E311AD";
+createNode heightField -n "heightField1" -p "transform1";
+	rename -uid "234002A7-49E1-E734-F8E4-539DBAC141B9";
+	setAttr -k off ".v";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
 createNode fosterParent -n "Main_SceneRNfosterParent1";
-	rename -uid "3DF4DBC1-40CC-7653-DBA8-37A8A31F7BAE";
+	rename -uid "FD60F13A-4762-35AD-1ADB-BF91C8B4510B";
 createNode transform -n "Flag_Grp" -p "Main_SceneRNfosterParent1";
 	rename -uid "294B4E7E-4B4F-8AE9-F556-51B3E91EAED2";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2BDF5D2D-44E2-9A5E-5C31-67B3AC01B671";
-	setAttr -s 24 ".lnk";
-	setAttr -s 24 ".slnk";
+	rename -uid "6E650585-4C2D-EFDA-F774-77AD9FC8F4E0";
+	setAttr -s 53 ".lnk";
+	setAttr -s 53 ".slnk";
 createNode RedshiftOptions -s -n "redshiftOptions";
 	rename -uid "E8AA0E16-47ED-EE64-F365-1EB2A42E4675";
 	setAttr ".version" 6;
@@ -1082,28 +1106,51 @@ createNode RedshiftPostEffects -n "defaultRedshiftPostEffects";
 	setAttr -s 2 ".cb[1]" -type "float2" 1 1;
 	setAttr -s 2 ".cl[1]" -type "float2" 1 1;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "72E0A1C3-467D-3A09-772F-D78E6B885932";
-	setAttr ".bsdt[0].bscd" -type "Int32Array" 3 0 1 2 ;
-	setAttr -s 3 ".bspr";
-	setAttr -s 3 ".obsv";
+	rename -uid "88689BD3-418A-5C04-9A88-3D9FA7A4A4F6";
+	setAttr ".bsdt[0].bscd" -type "Int32Array" 6 0 1 2 3 4
+		 5 ;
+	setAttr -s 6 ".bspr";
+	setAttr -s 6 ".obsv";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "9BDB2296-4744-CD27-4B16-7085E09D87D2";
+	rename -uid "4803F22A-4E96-5F93-7F69-A8A7AE843033";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "C2F45037-4427-A1BC-1FA6-D49F26F0A464";
+	rename -uid "63105AF7-4F47-DC39-117A-3782A1378605";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "8A535081-4B99-8E92-9747-1FA970430AEC";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "98530E67-4974-EC7E-1D1A-88AA6AEB659E";
+	rename -uid "157038C6-4B37-478A-6FA4-36B8891C3C58";
+	setAttr -s 7 ".rlmi[1:7]"  1 2 3 4 5 6 7;
+	setAttr -s 6 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "C774E17D-449F-5870-8CC6-15ADA090F80E";
 	setAttr ".g" yes;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "EE4FEE4E-4BF1-CF16-9DD8-E296CA8A8BA8";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
+	setAttr ".img" -type "string" "";
+	setAttr -s 9 ".aovs";
+	setAttr ".GI_diffuse_samples" 3;
+	setAttr ".GI_specular_samples" 3;
+	setAttr ".GI_transmission_samples" 3;
+	setAttr ".GI_sss_samples" 3;
+	setAttr ".GI_volume_samples" 3;
+	setAttr ".fltr" -type "string" "";
+	setAttr ".igl" -type "string" "";
+	setAttr ".file" -type "string" "";
+	setAttr ".ensr" yes;
+	setAttr ".ai_user_options" -type "string" "";
+	setAttr ".kick_render_flags" -type "string" "";
 	setAttr ".version" -type "string" "5.2.2.1";
+	setAttr ".post_translation" -type "string" "";
+	setAttr ".ipr_refinement_started" -type "string" "";
+	setAttr ".ipr_refinement_finished" -type "string" "";
+	setAttr ".ipr_step_started" -type "string" "";
+	setAttr ".ipr_step_finished" -type "string" "";
+	setAttr ".output_overscan" -type "string" "";
+	setAttr ".ARV_options" -type "string" "";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "5724E93F-44FA-4A2D-79BD-6E830785471D";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -1116,8 +1163,10 @@ createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
 	setAttr ".ai_translator" -type "string" "maya";
 createNode reference -n "Main_SceneRN";
 	rename -uid "2872A957-43C6-CFE3-AACE-9993E9F4032C";
+	setAttr -s 2 ".fn";
 	setAttr ".fn[0]" -type "string" "D:/``SSD/Rick/Desktop/THEGAMESTUFF/Fox_FX/Maya_Scenes/Main_Scene.ma";
-	setAttr -s 456 ".phl";
+	setAttr ".fn[1]" -type "string" "D:/``SSD/Rick/Desktop/Telegram.lnk";
+	setAttr -s 462 ".phl";
 	setAttr ".phl[31]" 0;
 	setAttr ".phl[32]" 0;
 	setAttr ".phl[33]" 0;
@@ -1550,15 +1599,30 @@ createNode reference -n "Main_SceneRN";
 	setAttr ".phl[460]" 0;
 	setAttr ".phl[461]" 0;
 	setAttr ".phl[462]" 0;
+	setAttr ".phl[463]" 0;
+	setAttr ".phl[464]" 0;
+	setAttr ".phl[465]" 0;
+	setAttr ".phl[466]" 0;
+	setAttr ".phl[467]" 0;
+	setAttr ".phl[468]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Main_SceneRN"
 		"Main_Scene:IslandTest2RN" 0
-		"Main_SceneRN" 27
+		"Main_SceneRN" 36
 		2 "|Main_Scene:camera1" "translateX" " 90.83029837920538796"
 		2 "|Main_Scene:camera1" "translateY" " 5.87935148775321625"
 		2 "|Main_Scene:camera1" "translateZ" " 28.11996203839510855"
 		2 "|Main_Scene:camera1" "rotateX" " 9.59966133982435821"
 		2 "|Main_Scene:camera1" "rotateY" " 73.20000000000028706"
+		2 "|Main_Scene:camera1" "rotateZ" " 0"
+		2 "|Main_Scene:camera1" "scaleX" " 0.99999999999999978"
+		2 "|Main_Scene:camera1" "scaleY" " 1"
+		2 "|Main_Scene:camera1" "scaleZ" " 1"
+		2 "|Main_Scene:camera1" "translateX" " 100"
+		2 "|Main_Scene:camera1" "translateY" " 17"
+		2 "|Main_Scene:camera1" "translateZ" " 20"
+		2 "|Main_Scene:camera1" "rotateX" " 5"
+		2 "|Main_Scene:camera1" "rotateY" " 76"
 		2 "|Main_Scene:camera1" "rotateZ" " 0"
 		2 "|Main_Scene:camera1" "scaleX" " 0.99999999999999978"
 		2 "|Main_Scene:camera1" "scaleY" " 1"
@@ -1815,8 +1879,8 @@ createNode reference -n "Main_SceneRN";
 		3 "|Main_Scene:Island_Asset|Main_Scene:IslandTest2:VolcanoIsland2:VI2|Main_Scene:IslandTest2:VolcanoIsland2:VI2Shape.instObjGroups" 
 		"Main_Scene:lambert3SG.dagSetMembers" "-na"
 		5 3 "Main_SceneRN" "|Main_Scene:Island_Asset|Main_Scene:IslandTest2:VolcanoIsland2:VI2|Main_Scene:IslandTest2:VolcanoIsland2:VI2Shape.instObjGroups" 
-		"Main_SceneRN.placeHolderList[431]" "Main_Scene:lambert3SG.dsm"
-		"Main_SceneRN" 34
+		"Main_SceneRN.placeHolderList[437]" "Main_Scene:lambert3SG.dsm"
+		"Main_SceneRN" 50
 		0 "|Main_Scene:Flag_Asset" "|Main_SceneRNfosterParent1|Flag_Grp" "-s -r "
 		
 		2 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset" "visibility" 
@@ -1831,7 +1895,7 @@ createNode reference -n "Main_SceneRN";
 		" -type \"double3\" 0 0 0"
 		2 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset" "scalePivot" 
 		" -type \"double3\" 0 0 0"
-		2 "|Main_Scene:Water_Plane" "visibility" " 1"
+		2 "|Main_Scene:Water_Plane" "visibility" " 0"
 		2 "|Main_Scene:camera1" "translateX" " 100"
 		2 "|Main_Scene:camera1" "translateY" " 17"
 		2 "|Main_Scene:camera1" "translateZ" " 20"
@@ -1849,41 +1913,57 @@ createNode reference -n "Main_SceneRN";
 		2 "|Main_Scene:camera1" "scalePivot" " -type \"double3\" 0 0 0"
 		2 "|Main_Scene:camera1" "scalePivotTranslate" " -type \"double3\" 0 0 0"
 		2 "|Main_Scene:camera1" "rotateAxis" " -type \"double3\" 0 0 0"
-		2 "|Main_Scene:camera1|Main_Scene:cameraShape1" "centerOfInterest" " 9.9999997473787516e-06"
+		2 "|Main_Scene:camera1|Main_Scene:cameraShape1" "centerOfInterest" " 0.97030183738633258"
 		
 		2 "|Main_Scene:camera1|Main_Scene:cameraShape1" "tumblePivot" " -type \"double3\" 17.04741916947435243 16.34075822802688904 5.91479545426517461"
 		
-		2 "|Main_Scene:aiSkyDomeLight1" "visibility" " 1"
+		2 "|Main_Scene:camera1|Main_Scene:cameraShape1" "depth" " 1"
+		2 "|Main_Scene:aiSkyDomeLight1" "visibility" " 0"
 		2 "|Main_Scene:aiSkyDomeLight1|Main_Scene:aiSkyDomeLightShape1" "aiColorTemperature" 
 		" 7160"
 		2 "Main_Scene:defaultRedshiftPostEffects" "version" " 2"
-		5 4 "Main_SceneRN" "|Main_Scene:Palm_Tree_Asset.drawOverride" "Main_SceneRN.placeHolderList[458]" 
+		2 "Main_Scene:set1" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:set1" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		2 "Main_Scene:set1" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		2 "Main_Scene:set1" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:set1" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:lambert2SG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:lambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:lambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:lambert2SG" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:lambert2SG" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:lambert3SG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:lambert3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:lambert3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:lambert3SG" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:lambert3SG" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		5 4 "Main_SceneRN" "|Main_Scene:Palm_Tree_Asset.drawOverride" "Main_SceneRN.placeHolderList[464]" 
 		""
-		5 4 "Main_SceneRN" "|Main_Scene:Island_Asset.drawOverride" "Main_SceneRN.placeHolderList[459]" 
+		5 4 "Main_SceneRN" "|Main_Scene:Island_Asset.drawOverride" "Main_SceneRN.placeHolderList[465]" 
 		""
-		5 4 "Main_SceneRN" "|Main_Scene:Water_Plane.drawOverride" "Main_SceneRN.placeHolderList[460]" 
+		5 4 "Main_SceneRN" "|Main_Scene:Water_Plane.drawOverride" "Main_SceneRN.placeHolderList[466]" 
 		""
-		5 4 "Main_SceneRN" "|Main_Scene:camera1.drawOverride" "Main_SceneRN.placeHolderList[461]" 
+		5 4 "Main_SceneRN" "|Main_Scene:camera1.drawOverride" "Main_SceneRN.placeHolderList[467]" 
 		""
-		5 4 "Main_SceneRN" "|Main_Scene:aiSkyDomeLight1.drawOverride" "Main_SceneRN.placeHolderList[462]" 
+		5 4 "Main_SceneRN" "|Main_Scene:aiSkyDomeLight1.drawOverride" "Main_SceneRN.placeHolderList[468]" 
 		""
-		"Main_Scene:Hermit_Crab_Rig_NewRN" 428
+		"Main_Scene:Hermit_Crab_Rig_NewRN" 482
 		0 "|Main_SceneRNfosterParent1|Flag_Grp" "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:L_Arm_Ctrls|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Lower_FK_02_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Lower_FK_02_Ctrl" 
 		"-s -r "
 		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab" 
 		"translate" " -type \"double3\" 0 0 0"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Transform_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:Transform_Ctrl" 
-		"L_LegsIKFK" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Transform_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:Transform_Ctrl" 
-		"R_LegsIKFK" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Legs_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_01_IK_Ctrl_Main_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_01_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_01_IK_Ctrl" 
-		"Follow" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Legs_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_02_IK_Ctrl_Main_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_02_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Leg_02_IK_Ctrl" 
-		"Follow" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Legs_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_01_IK_Ctrl_Main_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_01_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_01_IK_Ctrl" 
-		"Follow" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Legs_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Legs_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_02_IK_Ctrl_Main_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_02_IK_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:R_Leg_02_IK_Ctrl" 
-		"Follow" " -k 1"
+		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Geo|Main_Scene:Hermit_Crab_Rig_New:HermitCrab|Main_Scene:Hermit_Crab_Rig_New:Crab_Body|Main_Scene:Hermit_Crab_Rig_New:Crab_BodyShape" 
+		"instObjGroups.objectGroups" " -s 4"
 		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:L_Arm_Ctrls|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Upper_FK_02_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Upper_FK_02_Ctrl" 
 		"visibility" " 0"
 		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:L_Arm_Ctrls|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Upper_FK_02_Ctrl_Grp|Main_Scene:Hermit_Crab_Rig_New:L_Claw_Upper_FK_02_Ctrl" 
@@ -1913,14 +1993,121 @@ createNode reference -n "Main_SceneRN";
 		"rotateY" " -k 0"
 		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:L_Eye_Ctrls|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_01_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_01_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_02_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_02_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_03_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_03_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_04_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_04_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_05_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:L_Eyestalk_FK_05_Jnt_fk_ctrl" 
 		"rotateZ" " -k 0"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Shell_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl" 
-		"FollowTranslate" " -k 1"
-		2 "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Shell_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl" 
-		"FollowRotate" " -k 1"
 		2 "Main_Scene:Hermit_Crab_Rig_New:defaultRedshiftPostEffects" "version" " 2"
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file29" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabShell/CrabShell_Normal_DirectX.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file29" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file26" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabShell/CrabShell_Base_color.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file26" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file24" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabEyes/CrabEyes_Normal.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file24" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file21" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabEyes/CrabEyes_Base_color.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file21" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file19" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabBody/CrabBody_Normal_DirectX.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file19" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file16" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabBody/CrabBody_Base_color.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file16" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file30" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabShell/CrabShell_Roughness.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file30" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file28" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabShell/CrabShell_Metallic.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file28" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file25" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabEyes/CrabEyes_Roughness.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file25" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file23" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabEyes/CrabEyes_Metallic.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file23" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file20" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabBody/CrabBody_Roughness.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file20" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file18" "fileTextureName" " -type \"string\" \"D:/``SSD/Rick/Downloads/Crab_Textures_2-20241205T042234Z-001/Crab_Textures_2/CrabBody/CrabBody_Metallic.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:file18" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set6" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Hermit_Crab_Rig_New:set6" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set6" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set6" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set6" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set5" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Hermit_Crab_Rig_New:set5" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set5" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set5" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:set5" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG" "aiCustomAOVs[0].aovName" 
+		" -type \"string\" \"AO\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG" "aiCustomAOVs[1].aovName" 
+		" -type \"string\" \"Z\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG" "aiCustomAOVs[2].aovName" 
+		" -type \"string\" \"diffuse\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG" "aiCustomAOVs[3].aovName" 
+		" -type \"string\" \"specular\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:groupParts1" "inputComponents" " -type \"componentList\" 3 \"f[0:8295]\" \"f[8696:9069]\" \"f[9470:41165]\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:groupParts2" "inputComponents" " -type \"componentList\" 2 \"f[8296:8695]\" \"f[9070:9469]\""
 		
 		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__defaultRedshiftPostEffects" "version" 
 		" 2"
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__file21" "fileTextureName" " -type \"string\" \"C:/Users/Melia/Desktop/Fox_FX/Models/Hermit_crab/Textures/CrabEyes/CrabEyes_Base_color.png\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__file21" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set6" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set6" "aiCustomAOVs[0].aovName" 
+		" -type \"string\" \"AO\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set6" "aiCustomAOVs[1].aovName" 
+		" -type \"string\" \"Z\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set6" "aiCustomAOVs[2].aovName" 
+		" -type \"string\" \"diffuse\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set6" "aiCustomAOVs[3].aovName" 
+		" -type \"string\" \"specular\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set5" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set5" "aiCustomAOVs[0].aovName" 
+		" -type \"string\" \"AO\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set5" "aiCustomAOVs[1].aovName" 
+		" -type \"string\" \"Z\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set5" "aiCustomAOVs[2].aovName" 
+		" -type \"string\" \"diffuse\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__set5" "aiCustomAOVs[3].aovName" 
+		" -type \"string\" \"specular\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__Crab_Body1SG" "aiCustomAOVs" " -s 4"
+		
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__Crab_Body1SG" "aiCustomAOVs[0].aovName" 
+		" -type \"string\" \"AO\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__Crab_Body1SG" "aiCustomAOVs[1].aovName" 
+		" -type \"string\" \"Z\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__Crab_Body1SG" "aiCustomAOVs[2].aovName" 
+		" -type \"string\" \"diffuse\""
+		2 "Main_Scene:Hermit_Crab_Rig_New:pasted__Crab_Body1SG" "aiCustomAOVs[3].aovName" 
+		" -type \"string\" \"specular\""
 		2 "Main_Scene:Hermit_Crab_Rig_New:Geo_Layer" "displayType" " 2"
 		2 "Main_Scene:Hermit_Crab_Rig_New:Geo_Layer" "visibility" " 1"
 		2 "Main_Scene:Hermit_Crab_Rig_New:Joints_Layer" "visibility" " 0"
@@ -2721,19 +2908,55 @@ createNode reference -n "Main_SceneRN";
 		"Main_SceneRN.placeHolderList[427]" ""
 		5 4 "Main_SceneRN" "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Controls|Main_Scene:Hermit_Crab_Rig_New:Shell_Ctrls|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_01_FK_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:Shell_02_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_02_FK_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:Shell_03_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_03_FK_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:Shell_04_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_04_FK_Jnt_fk_ctrl|Main_Scene:Hermit_Crab_Rig_New:Shell_05_FK_Jnt_fk_ctrl_offset|Main_Scene:Hermit_Crab_Rig_New:Shell_05_FK_Jnt_fk_ctrl.rotateZ" 
 		"Main_SceneRN.placeHolderList[428]" ""
-		"Main_Scene:Palm_TreeRN" 6
+		5 0 "Main_SceneRN" "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Geo|Main_Scene:Hermit_Crab_Rig_New:HermitCrab|Main_Scene:Hermit_Crab_Rig_New:Crab_Shell|Main_Scene:Hermit_Crab_Rig_New:Crab_ShellShape.instObjGroups" 
+		"Main_Scene:Hermit_Crab_Rig_New:set6.dagSetMembers" "Main_SceneRN.placeHolderList[429]" 
+		"Main_SceneRN.placeHolderList[430]" ""
+		5 0 "Main_SceneRN" "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Geo|Main_Scene:Hermit_Crab_Rig_New:HermitCrab|Main_Scene:Hermit_Crab_Rig_New:Crab_Body|Main_Scene:Hermit_Crab_Rig_New:Crab_BodyShape.instObjGroups.objectGroups[1]" 
+		"Main_Scene:Hermit_Crab_Rig_New:set5.dagSetMembers" "Main_SceneRN.placeHolderList[431]" 
+		"Main_SceneRN.placeHolderList[432]" ""
+		5 0 "Main_SceneRN" "|Main_Scene:Hermit_Crab_Asset|Main_Scene:Hermit_Crab_Rig_New:Hermit_Crab|Main_Scene:Hermit_Crab_Rig_New:Geo|Main_Scene:Hermit_Crab_Rig_New:HermitCrab|Main_Scene:Hermit_Crab_Rig_New:Crab_Body|Main_Scene:Hermit_Crab_Rig_New:Crab_BodyShape.instObjGroups.objectGroups[0]" 
+		"Main_Scene:Hermit_Crab_Rig_New:Crab_Body1SG.dagSetMembers" "Main_SceneRN.placeHolderList[433]" 
+		"Main_SceneRN.placeHolderList[434]" ""
+		"Main_Scene:Palm_TreeRN" 21
 		2 "Main_Scene:Palm_Tree:defaultRedshiftPostEffects" "version" " 2"
 		2 "Main_Scene:Palm_Tree:Main_Scene:defaultRedshiftPostEffects" "version" 
 		" 2"
-		3 "|Main_Scene:Palm_Tree_Asset|Main_Scene:Palm_Tree:Whole_Trunk|Main_Scene:Palm_Tree:Whole_TrunkShape.instObjGroups" 
-		"Main_Scene:Palm_Tree:Whole_TrunkSG.dagSetMembers" "-na"
+		2 "Main_Scene:Palm_Tree:Main_Scene:set1" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Palm_Tree:Main_Scene:set1" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Palm_Tree:Main_Scene:set1" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Palm_Tree:Main_Scene:set1" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Palm_Tree:Main_Scene:set1" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:Palm_Tree:Many_LeafsSG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Palm_Tree:Many_LeafsSG" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Palm_Tree:Many_LeafsSG" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Palm_Tree:Many_LeafsSG" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Palm_Tree:Many_LeafsSG" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
+		2 "Main_Scene:Palm_Tree:Whole_TrunkSG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Palm_Tree:Whole_TrunkSG" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Palm_Tree:Whole_TrunkSG" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Palm_Tree:Whole_TrunkSG" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Palm_Tree:Whole_TrunkSG" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
 		3 "|Main_Scene:Palm_Tree_Asset|Main_Scene:Palm_Tree:Many_Leafs|Main_Scene:Palm_Tree:Many_LeafsShape.instObjGroups" 
 		"Main_Scene:Palm_Tree:Many_LeafsSG.dagSetMembers" "-na"
+		3 "|Main_Scene:Palm_Tree_Asset|Main_Scene:Palm_Tree:Whole_Trunk|Main_Scene:Palm_Tree:Whole_TrunkShape.instObjGroups" 
+		"Main_Scene:Palm_Tree:Whole_TrunkSG.dagSetMembers" "-na"
 		5 3 "Main_SceneRN" "|Main_Scene:Palm_Tree_Asset|Main_Scene:Palm_Tree:Whole_Trunk|Main_Scene:Palm_Tree:Whole_TrunkShape.instObjGroups" 
-		"Main_SceneRN.placeHolderList[429]" "Main_Scene:Palm_Tree:Whole_TrunkSG.dsm"
+		"Main_SceneRN.placeHolderList[435]" "Main_Scene:Palm_Tree:Whole_TrunkSG.dsm"
 		5 3 "Main_SceneRN" "|Main_Scene:Palm_Tree_Asset|Main_Scene:Palm_Tree:Many_Leafs|Main_Scene:Palm_Tree:Many_LeafsShape.instObjGroups" 
-		"Main_SceneRN.placeHolderList[430]" "Main_Scene:Palm_Tree:Many_LeafsSG.dsm"
-		"Main_Scene:FlagRN" 44
+		"Main_SceneRN.placeHolderList[436]" "Main_Scene:Palm_Tree:Many_LeafsSG.dsm"
+		"Main_Scene:FlagRN" 49
 		2 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag" 
@@ -2765,6 +2988,15 @@ createNode reference -n "Main_SceneRN";
 		2 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape" 
 		"uvSet[0].uvSetName" " -type \"string\" \"map1\""
 		2 "Main_Scene:Flag:defaultRedshiftPostEffects" "version" " 2"
+		2 "Main_Scene:Flag:lambert2SG" "aiCustomAOVs" " -s 4"
+		2 "Main_Scene:Flag:lambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"AO\""
+		
+		2 "Main_Scene:Flag:lambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"Z\""
+		
+		2 "Main_Scene:Flag:lambert2SG" "aiCustomAOVs[2].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Main_Scene:Flag:lambert2SG" "aiCustomAOVs[3].aovName" " -type \"string\" \"specular\""
+		
 		3 "Main_Scene:Flag:polyTweakUV14.output" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape.inMesh" 
 		""
 		3 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem|Main_Scene:Flag:Flag_StemShape.instObjGroups" 
@@ -2774,56 +3006,56 @@ createNode reference -n "Main_SceneRN";
 		3 "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape.instObjGroups" 
 		"Main_Scene:Flag:lambert2SG.dagSetMembers" "-na"
 		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.scaleX" 
-		"Main_SceneRN.placeHolderList[432]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.scaleY" 
-		"Main_SceneRN.placeHolderList[433]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.scaleZ" 
-		"Main_SceneRN.placeHolderList[434]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateY" 
-		"Main_SceneRN.placeHolderList[435]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateX" 
-		"Main_SceneRN.placeHolderList[436]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateZ" 
-		"Main_SceneRN.placeHolderList[437]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.visibility" 
 		"Main_SceneRN.placeHolderList[438]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateX" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.scaleY" 
 		"Main_SceneRN.placeHolderList[439]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateY" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.scaleZ" 
 		"Main_SceneRN.placeHolderList[440]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateZ" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateY" 
 		"Main_SceneRN.placeHolderList[441]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem|Main_Scene:Flag:Flag_StemShape.inMesh" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateX" 
 		"Main_SceneRN.placeHolderList[442]" ""
-		5 3 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem|Main_Scene:Flag:Flag_StemShape.instObjGroups" 
-		"Main_SceneRN.placeHolderList[443]" ":initialShadingGroup.dsm"
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleX" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.translateZ" 
+		"Main_SceneRN.placeHolderList[443]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.visibility" 
 		"Main_SceneRN.placeHolderList[444]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleY" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateX" 
 		"Main_SceneRN.placeHolderList[445]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleZ" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateY" 
 		"Main_SceneRN.placeHolderList[446]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateZ" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem.rotateZ" 
 		"Main_SceneRN.placeHolderList[447]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateX" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem|Main_Scene:Flag:Flag_StemShape.inMesh" 
 		"Main_SceneRN.placeHolderList[448]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateY" 
-		"Main_SceneRN.placeHolderList[449]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateX" 
+		5 3 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Stem|Main_Scene:Flag:Flag_StemShape.instObjGroups" 
+		"Main_SceneRN.placeHolderList[449]" ":initialShadingGroup.dsm"
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleX" 
 		"Main_SceneRN.placeHolderList[450]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateY" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleY" 
 		"Main_SceneRN.placeHolderList[451]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateZ" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.scaleZ" 
 		"Main_SceneRN.placeHolderList[452]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.visibility" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateZ" 
 		"Main_SceneRN.placeHolderList[453]" ""
-		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape.inMesh" 
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateX" 
 		"Main_SceneRN.placeHolderList[454]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.rotateY" 
+		"Main_SceneRN.placeHolderList[455]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateX" 
+		"Main_SceneRN.placeHolderList[456]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateY" 
+		"Main_SceneRN.placeHolderList[457]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.translateZ" 
+		"Main_SceneRN.placeHolderList[458]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner.visibility" 
+		"Main_SceneRN.placeHolderList[459]" ""
+		5 4 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape.inMesh" 
+		"Main_SceneRN.placeHolderList[460]" ""
 		5 3 "Main_SceneRN" "|Main_SceneRNfosterParent1|Flag_Grp|Main_Scene:Flag_Asset|Main_Scene:Flag:Flag|Main_Scene:Flag:Flag_Banner|Main_Scene:Flag:Flag_BannerShape.instObjGroups" 
-		"Main_SceneRN.placeHolderList[455]" "Main_Scene:Flag:lambert2SG.dsm"
-		5 3 "Main_SceneRN" "Main_Scene:Flag:polyTweakUV13.output" "Main_SceneRN.placeHolderList[456]" 
+		"Main_SceneRN.placeHolderList[461]" "Main_Scene:Flag:lambert2SG.dsm"
+		5 3 "Main_SceneRN" "Main_Scene:Flag:polyTweakUV13.output" "Main_SceneRN.placeHolderList[462]" 
 		"Main_Scene:Flag:Flag_StemShape.i"
-		5 3 "Main_SceneRN" "Main_Scene:Flag:polyTweakUV14.output" "Main_SceneRN.placeHolderList[457]" 
+		5 3 "Main_SceneRN" "Main_Scene:Flag:polyTweakUV14.output" "Main_SceneRN.placeHolderList[463]" 
 		"Main_Scene:Flag:Flag_BannerShape.i";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -2833,17 +3065,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1285\n            -height 534\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1284\n            -height 533\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1285\n            -height 533\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|Main_Scene:camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
-		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|Main_Scene:camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
+		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n"
-		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2576\n            -height 1111\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2384\n            -height 1111\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n"
 		+ "            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -selectCommand \"print(\\\"\\\")\" \n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n"
 		+ "            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n"
@@ -2870,8 +3102,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
 		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|Main_Scene:camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2576\\n    -height 1111\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|Main_Scene:camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2576\\n    -height 1111\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|Main_Scene:camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2384\\n    -height 1111\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"|Main_Scene:camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2384\\n    -height 1111\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -3011,11 +3243,11 @@ createNode place2dTexture -n "place2dTexture1";
 	rename -uid "1E09D4B6-49FA-8420-1360-98997BD896A5";
 createNode file -n "file1";
 	rename -uid "6866EEB0-44BF-DEFD-6685-D4906AB69F02";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_lambert2SG_BaseColor.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/New_Flag_Textures-20241205T051739Z-001/New_Flag_Textures/Flag_Banner_BaseColor.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file2";
 	rename -uid "013C495C-4482-A6F6-5476-DCA2A5676991";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_lambert2SG_Emissive.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/New_Flag_Textures-20241205T051739Z-001/New_Flag_Textures/Flag_Banner_Emissive.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file3";
 	rename -uid "34332724-40AA-9B4B-C2E1-E6BD2B80B586";
@@ -3026,18 +3258,18 @@ createNode file -n "file3";
 createNode file -n "file4";
 	rename -uid "4406BB72-4F3D-07A1-BB24-C7B301EC3034";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_lambert2SG_Metallic.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/New_Flag_Textures-20241205T051739Z-001/New_Flag_Textures/Flag_Banner_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file5";
 	rename -uid "3CF5E9B5-406D-4D7A-7011-1ABCAA20B239";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_lambert2SG_Normal.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/New_Flag_Textures-20241205T051739Z-001/New_Flag_Textures/Flag_Banner_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file6";
 	rename -uid "9862D379-4169-5AD7-7CB9-028D3071444A";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_lambert2SG_Roughness.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/New_Flag_Textures-20241205T051739Z-001/New_Flag_Textures/Flag_Banner_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode multiplyDivide -n "multiplyDivide1";
 	rename -uid "BD45DA47-40CE-2106-A553-B8BDB8791281";
 createNode aiStandardSurface -n "Flag_Banner_Mat";
@@ -3045,23 +3277,31 @@ createNode aiStandardSurface -n "Flag_Banner_Mat";
 	setAttr ".emission" 1;
 createNode shadingEngine -n "set1";
 	rename -uid "C1F628A0-43C4-4499-C044-C8839B3C2506";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "703275C5-42D9-2DEA-7235-71AD28921D1D";
 createNode bump2d -n "bump2d1";
 	rename -uid "BDB34B47-44EE-C4EA-6A55-B0BE77EE99A3";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 0.00053999986 0 ;
+	setAttr ".vc1" -type "float3" 0 0.00028000001 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "5D3D1F86-4DCD-0252-20A7-98A25425FDEB";
 createNode file -n "file7";
 	rename -uid "849ED7D8-4B3C-A98F-9FA4-69BE2AD710BF";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_initialShadingGroup_Roughness.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Flag_Textures-20241205T051822Z-001/Flag_Textures/Flag_initialShadingGroup_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file8";
 	rename -uid "05367529-4E83-D5BE-CEFF-A19F4228BAF4";
 	setAttr ".ail" yes;
@@ -3070,8 +3310,8 @@ createNode file -n "file8";
 createNode file -n "file9";
 	rename -uid "186B5E8A-4603-6A5E-27F7-B98532694AC9";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_initialShadingGroup_Metallic.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Flag_Textures-20241205T051822Z-001/Flag_Textures/Flag_initialShadingGroup_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file10";
 	rename -uid "D714DBE8-4579-486C-15F2-DF957F1E22C8";
 	setAttr ".ail" yes;
@@ -3084,22 +3324,30 @@ createNode file -n "file11";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file12";
 	rename -uid "91B565CD-4CF0-D041-C931-26A334EAB757";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Flag/Textures/Flag_initialShadingGroup_BaseColor.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Flag_Textures-20241205T051822Z-001/Flag_Textures/Flag_initialShadingGroup_BaseColor.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode aiStandardSurface -n "Flag_Pole_Mat";
 	rename -uid "DC8C5208-4E30-44AB-493A-82A3D01F605E";
 	setAttr ".emission" 1;
 createNode shadingEngine -n "set2";
 	rename -uid "594C452E-4972-54E6-7EEF-D1814D101BCC";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo2";
 	rename -uid "5AC759B9-45E5-9CE7-41BC-C4BF06DF70CA";
 createNode bump2d -n "bump2d2";
 	rename -uid "1C247B20-471B-33F7-2FED-0CBE5A7EA876";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 0.00053999986 0 ;
+	setAttr ".vc1" -type "float3" 0 0.00027000002 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode multiplyDivide -n "multiplyDivide2";
 	rename -uid "C3EC1104-42C7-4203-9247-E99B578A0E8E";
@@ -3108,18 +3356,18 @@ createNode place2dTexture -n "place2dTexture3";
 createNode file -n "file13";
 	rename -uid "EECF7D8F-498E-60A6-4873-AEBAB21145A2";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Island/Textures/VolcanoIsland2_Island_Roughness.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file14";
 	rename -uid "623271A6-4BAB-2A74-666D-3B8783AFFD2D";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Island/Textures/VolcanoIsland2_Island_Normal.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file15";
 	rename -uid "105760F7-490F-A597-6DD7-24BCB6B2AB09";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Island/Textures/VolcanoIsland2_Island_Metallic.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file16";
 	rename -uid "1586194E-47C8-664B-EDA2-E5AAC109F718";
 	setAttr ".ail" yes;
@@ -3128,22 +3376,26 @@ createNode file -n "file16";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file17";
 	rename -uid "CE2DCC72-49F2-2BF9-43F5-9593754952FE";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Island/Textures/VolcanoIsland2_Island_BaseColor.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_BaseColor.png";
 	setAttr ".cs" -type "string" "sRGB";
-createNode aiStandardSurface -n "Island_Mat";
-	rename -uid "5E4D5765-45A8-EE83-2CE2-7F9FE8B0B900";
-	setAttr ".emission" 1;
-	setAttr ".emission_color" -type "float3" 0 0 0 ;
 createNode shadingEngine -n "set3";
 	rename -uid "3C95FB96-4350-A07D-A281-229DCC142F93";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo3";
 	rename -uid "8A3EB94C-4198-75B9-1FDC-B5A55C681016";
 createNode bump2d -n "bump2d3";
 	rename -uid "FC4584E0-4AEF-0979-879C-F189F62688FD";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 2.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 0.00014000002 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode multiplyDivide -n "multiplyDivide3";
 	rename -uid "B0C21B65-4CB3-9A65-B8F8-5482AEAEBF3C";
@@ -3180,8 +3432,16 @@ createNode file -n "file23";
 	setAttr ".cs" -type "string" "sRGB";
 createNode shadingEngine -n "set4";
 	rename -uid "273C9889-40DE-67E1-4FCB-969108F59124";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo4";
 	rename -uid "515FC570-4B28-6CA8-4066-0DA655B4D3E5";
 createNode bump2d -n "bump2d4";
@@ -3224,8 +3484,16 @@ createNode file -n "file29";
 	setAttr ".cs" -type "string" "sRGB";
 createNode shadingEngine -n "set5";
 	rename -uid "80AC5F19-4BAA-92A0-1AA8-DDB07C22EB09";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo5";
 	rename -uid "67A00914-4704-5DAE-0539-85ADF04A4B37";
 createNode bump2d -n "bump2d5";
@@ -3268,8 +3536,16 @@ createNode file -n "file35";
 	setAttr ".cs" -type "string" "sRGB";
 createNode shadingEngine -n "set6";
 	rename -uid "F6631E81-452B-67CB-BE7F-45B869956943";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo6";
 	rename -uid "9CA8DB28-4E97-3458-B292-9EAF82D75190";
 createNode bump2d -n "bump2d6";
@@ -3312,8 +3588,16 @@ createNode file -n "file41";
 	setAttr ".cs" -type "string" "sRGB";
 createNode shadingEngine -n "set7";
 	rename -uid "5E40F77B-439B-6401-8E93-F0842C52EC84";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo7";
 	rename -uid "3FCE9942-4170-2F89-FFA5-4481F163F25B";
 createNode bump2d -n "bump2d7";
@@ -3328,18 +3612,18 @@ createNode place2dTexture -n "place2dTexture8";
 createNode file -n "file42";
 	rename -uid "E1671A17-467B-F80F-2A8E-78AC53C4D0D7";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Trunk_Roughness.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file43";
 	rename -uid "B6B5327C-4B4A-A816-E51F-E38C0926E0FD";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Trunk_Normal.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file44";
 	rename -uid "7BCEAFDC-4B45-F0B4-E4A8-0AA540AB241E";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Trunk_Metallic.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file45";
 	rename -uid "C42F5A53-4049-BA83-F2C4-BEB2AADD922C";
 	setAttr ".ail" yes;
@@ -3348,25 +3632,30 @@ createNode file -n "file45";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file46";
 	rename -uid "13F4BE89-4E60-B807-D473-8C90BA3C6539";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Trunk_Emissive.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Emissive.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file47";
 	rename -uid "836CE2EC-437A-79B1-2FA6-63A2AED41AAB";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Trunk_BaseColor.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_BaseColor.png";
 	setAttr ".cs" -type "string" "sRGB";
-createNode aiStandardSurface -n "Palm_Tree_Trunk_Mat";
-	rename -uid "EDBA0033-46FA-597F-247C-188E7702C9C9";
-	setAttr ".emission" 1;
 createNode shadingEngine -n "set8";
 	rename -uid "FB30D953-473B-2B5C-6866-0D8793F614CC";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo8";
 	rename -uid "9A05CA08-47BF-B583-8284-6A853A88347D";
 createNode bump2d -n "bump2d8";
 	rename -uid "38131DBD-4D6B-C09E-569C-BEAF9EC5B309";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 2.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 9.0000001e-05 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode multiplyDivide -n "multiplyDivide8";
 	rename -uid "0F6C36CE-46A3-E915-C029-FDA662902A73";
@@ -3375,18 +3664,18 @@ createNode place2dTexture -n "place2dTexture9";
 createNode file -n "file48";
 	rename -uid "420F9678-4975-F121-3C34-2AA121C23C59";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Leaves_Roughness.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Leaves/Maya_Hero_PalmTree_Final_Leaves_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file49";
 	rename -uid "F94DCB7C-4F14-6254-A052-37AB3D8BA9D1";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Leaves_Normal.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Leaves/Maya_Hero_PalmTree_Final_Leaves_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file50";
 	rename -uid "4E3F8B01-486A-D03F-A3D5-AEAE34DC425B";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Leaves_Metallic.png";
-	setAttr ".cs" -type "string" "Raw";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Leaves/Maya_Hero_PalmTree_Final_Leaves_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file51";
 	rename -uid "1BED541B-441B-C070-A7F9-ED9D37C74FB8";
 	setAttr ".ail" yes;
@@ -3395,94 +3684,36 @@ createNode file -n "file51";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file52";
 	rename -uid "C01A1417-439D-6718-BF5D-138540DEA987";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Leaves_Emissive.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Leaves/Maya_Hero_PalmTree_Final_Leaves_Emissive.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file53";
 	rename -uid "AB7E7DBF-4114-6ED6-2B14-0497DCE30935";
-	setAttr ".ftn" -type "string" "C:/Users/Melia/Desktop/Fox_FX/Models/Palm_Tree/4/Maya_Hero_PalmTree_Final_Leaves_BaseColor.png";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Leaves/Maya_Hero_PalmTree_Final_Leaves_BaseColor.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode aiStandardSurface -n "Palm_Tree_Leaves_Mat";
 	rename -uid "E956DC80-4A0C-035E-A8AC-34BB6D8BBF70";
 	setAttr ".emission" 1;
 createNode shadingEngine -n "set9";
 	rename -uid "690DE347-4095-A19F-8369-E9BF38E23368";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 createNode materialInfo -n "materialInfo9";
 	rename -uid "4D7309D6-4ADF-1DC5-C5E3-A38E57AD08F5";
 createNode bump2d -n "bump2d9";
 	rename -uid "8C96806D-482C-0504-A959-62A725DA7639";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 2.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 0.00012000001 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode multiplyDivide -n "multiplyDivide9";
 	rename -uid "A81A3258-4EEE-9E2B-7C81-74A1A831D772";
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "A4C5F617-4283-0FAC-C65C-74B7ED103732";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -41.071426939396702 92.261901095746211 ;
-	setAttr ".tgi[0].vh" -type "double2" 105.3571386706263 361.3095094523739 ;
-	setAttr -s 20 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" -517.14288330078125;
-	setAttr ".tgi[0].ni[0].y" 467.14285278320312;
-	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[1].y" 464.28570556640625;
-	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" 708.5714111328125;
-	setAttr ".tgi[0].ni[2].y" 545.71429443359375;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[3].y" 464.28570556640625;
-	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[4].y" 135.71427917480469;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -524.28570556640625;
-	setAttr ".tgi[0].ni[5].y" 62.857143402099609;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[6].y" 288.57144165039062;
-	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" -824.28570556640625;
-	setAttr ".tgi[0].ni[7].y" 338.57144165039062;
-	setAttr ".tgi[0].ni[7].nvs" 1923;
-	setAttr ".tgi[0].ni[8].x" -831.4285888671875;
-	setAttr ".tgi[0].ni[8].y" 338.57144165039062;
-	setAttr ".tgi[0].ni[8].nvs" 1923;
-	setAttr ".tgi[0].ni[9].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[9].y" -40;
-	setAttr ".tgi[0].ni[9].nvs" 1923;
-	setAttr ".tgi[0].ni[10].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[10].y" 288.57144165039062;
-	setAttr ".tgi[0].ni[10].nvs" 1923;
-	setAttr ".tgi[0].ni[11].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[11].y" -215.71427917480469;
-	setAttr ".tgi[0].ni[11].nvs" 1923;
-	setAttr ".tgi[0].ni[12].x" 700;
-	setAttr ".tgi[0].ni[12].y" 545.71429443359375;
-	setAttr ".tgi[0].ni[12].nvs" 1923;
-	setAttr ".tgi[0].ni[13].x" -65.714286804199219;
-	setAttr ".tgi[0].ni[13].y" 650;
-	setAttr ".tgi[0].ni[13].nvs" 1923;
-	setAttr ".tgi[0].ni[14].x" -517.14288330078125;
-	setAttr ".tgi[0].ni[14].y" 62.857143402099609;
-	setAttr ".tgi[0].ni[14].nvs" 1923;
-	setAttr ".tgi[0].ni[15].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[15].y" -40;
-	setAttr ".tgi[0].ni[15].nvs" 1923;
-	setAttr ".tgi[0].ni[16].x" -524.28570556640625;
-	setAttr ".tgi[0].ni[16].y" 467.14285278320312;
-	setAttr ".tgi[0].ni[16].nvs" 1923;
-	setAttr ".tgi[0].ni[17].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[17].y" 135.71427917480469;
-	setAttr ".tgi[0].ni[17].nvs" 1923;
-	setAttr ".tgi[0].ni[18].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[18].y" -215.71427917480469;
-	setAttr ".tgi[0].ni[18].nvs" 1923;
-	setAttr ".tgi[0].ni[19].x" -64.285713195800781;
-	setAttr ".tgi[0].ni[19].y" 650;
-	setAttr ".tgi[0].ni[19].nvs" 1923;
 createNode transformGeometry -n "transformGeometry1";
 	rename -uid "2D17CD9E-43F9-6360-7DCA-A1A1D0F29D97";
 	setAttr ".txf" -type "matrix" 0 0 0.40602520144135024 0 0 0.51240675787173118 0 0
@@ -3493,7 +3724,6 @@ createNode transformGeometry -n "transformGeometry2";
 		 -0.16735406758227467 0 0 0 42.451580951500617 22.612711508486868 0.025379070889219868 1;
 createNode displayLayer -n "NO_CLICK";
 	rename -uid "B09B709B-48C8-F960-7043-89AE6CCACE16";
-	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode animCurveTL -n "Transform_Ctrl_translateX";
 	rename -uid "E8D74049-4A21-A5DD-12E6-A097AF8968A7";
@@ -3650,7 +3880,7 @@ createNode animCurveTA -n "Transform_Ctrl_rotateY";
 	setAttr -s 34 ".ktv[0:33]"  0 -219.65425881808409 18 -219.65425881808409
 		 31 -219.65425881808409 39 -219.65425881808409 42 -148.69211689392731 48 -147.81488901317363
 		 56 -169.81624796611197 62 -201.13022518189726 68 -226 74 -226 78 -226 87 -226 97 -226
-		 105 -226 140 -226 143 -226 146 -227.14471768687997 158 -224.97241765793603 165 -224.97241765793603
+		 105 -226 140 -226 143 -226 146 -227.14471768688 158 -224.97241765793603 165 -224.97241765793603
 		 173 -224.97241765793603 181 -224.97241765793603 197 -224.97241765793603 209 -224.97241765793603
 		 216 -230.84384726373267 223 -139.64222324266615 230 34.854029460586077 247 -4.8944963291450456
 		 254 -19.35062700889619 259 -56.57012177508458 265 -73.906025022282336 271 -11.501931485220993
@@ -5780,7 +6010,7 @@ createNode animCurveTA -n "Shell_01_FK_Jnt_fk_ctrl_rotateZ";
 	setAttr ".tan" 9;
 	setAttr ".wgt" no;
 	setAttr -s 31 ".ktv[0:30]"  0 -3.0687265012048965 16 7.504299618451908
-		 18 7.4731364416430637 32 8.1220701379586053 34 0 39 -0.8141696152219523 42 10.222653894715407
+		 18 7.4731364416430637 32 8.1220701379586071 34 0 39 -0.8141696152219523 42 10.222653894715407
 		 68 14.754038162123996 74 50.301367028751336 78 50.301367028751336 87 0 97 8.0480137437262957
 		 105 9.9346981718532668 112 9.9346981718532668 121 9.9346981718532668 132 16.174580571791672
 		 138 12.089712468121864 141 12.089712468121864 146 6.8088115066232779 158 0 165 4.6371553370974601
@@ -10942,9 +11172,736 @@ createNode animCurveTU -n "Flag_Stationary_scaleZ";
 	setAttr ".wgt" no;
 	setAttr -s 2 ".ktv[0:1]"  0 0.99999999999999956 140 0.99999999999999956;
 	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode reference -n "Lighting_RigRN";
+	rename -uid "821EA1FC-4BC0-619D-EDA2-038B0A820242";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"Lighting_RigRN"
+		"Lighting_RigRN" 0
+		"Lighting_Rig:Hermit_Crab_Rig_NewRN" 0
+		"Lighting_Rig:IslandTest2RN" 0
+		"Lighting_Rig:FlagRN" 0
+		"Lighting_Rig:Palm_TreeRN" 0
+		"Lighting_Rig:Hermit_Crab_Rig_NewRN" 4
+		2 "Lighting_Rig:Hermit_Crab_Rig_New:file21" "fileTextureName" " -type \"string\" \"C:/Users/Melia/Desktop/Fox_FX/Models/Hermit_crab/Textures/CrabEyes/CrabEyes_Base_color.png\""
+		
+		2 "Lighting_Rig:Hermit_Crab_Rig_New:file21" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		2 "Lighting_Rig:Hermit_Crab_Rig_New:pasted__file21" "fileTextureName" " -type \"string\" \"C:/Users/Melia/Desktop/Fox_FX/Models/Hermit_crab/Textures/CrabEyes/CrabEyes_Base_color.png\""
+		
+		2 "Lighting_Rig:Hermit_Crab_Rig_New:pasted__file21" "colorSpace" " -type \"string\" \"sRGB\""
+		
+		"Lighting_RigRN" 33
+		2 "|Lighting_Rig:camera1|Lighting_Rig:cameraShape1" "renderable" " 0"
+		2 "Lighting_Rig:lambert2SG" "aiCustomAOVs" " -s 6"
+		2 "Lighting_Rig:lambert2SG" "aiCustomAOVs[5].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:lambert2SG" "aiCustomAOVs[6].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:lambert2SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:lambert2SG" "aiCustomAOVs[8].aovName" " -type \"string\" \"specular\""
+		
+		2 "Lighting_Rig:set2" "aiCustomAOVs" " -s 6"
+		2 "Lighting_Rig:set2" "aiCustomAOVs[5].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:set2" "aiCustomAOVs[6].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:set2" "aiCustomAOVs[7].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:set2" "aiCustomAOVs[8].aovName" " -type \"string\" \"specular\""
+		
+		2 "Lighting_Rig:set3" "aiCustomAOVs" " -s 6"
+		2 "Lighting_Rig:set3" "aiCustomAOVs[5].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:set3" "aiCustomAOVs[6].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:set3" "aiCustomAOVs[7].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:set3" "aiCustomAOVs[8].aovName" " -type \"string\" \"specular\""
+		
+		2 "Lighting_Rig:set5" "aiCustomAOVs" " -s 6"
+		2 "Lighting_Rig:set5" "aiCustomAOVs[5].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:set5" "aiCustomAOVs[6].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:set5" "aiCustomAOVs[7].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:set5" "aiCustomAOVs[8].aovName" " -type \"string\" \"specular\""
+		
+		2 "Lighting_Rig:Island_Mat" "base" " 1"
+		2 "Lighting_Rig:Island_Mat" "diffuseRoughness" " 0"
+		2 "Lighting_Rig:set7" "aiCustomAOVs" " -s 5"
+		2 "Lighting_Rig:set7" "aiCustomAOVs[4].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:set7" "aiCustomAOVs[5].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:set7" "aiCustomAOVs[6].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:set7" "aiCustomAOVs[7].aovName" " -type \"string\" \"specular\""
+		
+		2 "Lighting_Rig:set8" "aiCustomAOVs" " -s 5"
+		2 "Lighting_Rig:set8" "aiCustomAOVs[4].aovName" " -type \"string\" \"AO\""
+		
+		2 "Lighting_Rig:set8" "aiCustomAOVs[5].aovName" " -type \"string\" \"Z\""
+		
+		2 "Lighting_Rig:set8" "aiCustomAOVs[6].aovName" " -type \"string\" \"diffuse\""
+		
+		2 "Lighting_Rig:set8" "aiCustomAOVs[7].aovName" " -type \"string\" \"specular\"";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
+createNode aiAOVFilter -n "aiAOVFilter2";
+	rename -uid "CC20A2AE-4182-2037-13F5-DDA74B4D3A32";
+	setAttr ".ai_translator" -type "string" "closest";
+createNode aiAOV -n "aiAOV_AO";
+	rename -uid "27E7E601-4AFA-60A0-A3ED-39B48BBD9341";
+	setAttr ".aovn" -type "string" "AO";
+createNode aiAOV -n "aiAOV_Z";
+	rename -uid "BD015B14-460D-4C87-E985-9EBBD706A445";
+	setAttr ".aovn" -type "string" "Z";
+	setAttr ".aovt" 4;
+createNode aiAOVFilter -n "aiAOVFilter3";
+	rename -uid "0C810259-4001-0181-4639-CE9880F64B85";
+	setAttr ".ai_translator" -type "string" "closest";
+createNode aiAOVFilter -n "aiAOVFilter1";
+	rename -uid "7309764E-46F3-49CE-DE51-3EA9C88D78B0";
+	setAttr ".ai_translator" -type "string" "closest";
+createNode aiAOV -n "aiAOV_diffuse";
+	rename -uid "95CB21E6-449C-ED3D-E33C-CC9F9317D098";
+	setAttr ".aovn" -type "string" "diffuse";
+	setAttr ".aovt" 5;
+createNode aiAOV -n "aiAOV_specular";
+	rename -uid "D814B286-4F3D-8CD1-19FD-ABA3E92853A5";
+	setAttr ".aovn" -type "string" "specular";
+	setAttr ".aovt" 5;
+createNode file -n "file54";
+	rename -uid "294F22AE-41EA-1EAB-A2F6-F69AA8E59AD9";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture10";
+	rename -uid "22129A7D-454A-D0C2-D7AC-1B9A4DB18AC2";
+createNode file -n "file55";
+	rename -uid "F72909A3-461D-0B67-CEAC-4A9B5A2BC6D7";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture11";
+	rename -uid "FE57AEE0-4192-D871-5C86-D8ACEFF25057";
+createNode aiStandardSurface -n "Palm_Tree_Trunk";
+	rename -uid "D259DD49-4308-3A5D-0DE4-A5B1C8E8F7D9";
+createNode shadingEngine -n "aiStandardSurface1SG";
+	rename -uid "43D98B0D-4B6B-D556-A3C6-8CB8325920CC";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
+createNode materialInfo -n "materialInfo10";
+	rename -uid "99EAB072-41D2-60DF-0F07-3FB794AC5AD6";
+createNode file -n "file56";
+	rename -uid "03AC36F2-4DD2-831E-E1A1-3C850219CCEE";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture12";
+	rename -uid "220B7AB4-4906-BE6A-8D08-4AA135FC99FE";
+createNode file -n "file57";
+	rename -uid "27C9C9F9-43D2-80EE-39B8-CF9271848348";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture13";
+	rename -uid "D337EC88-4E01-178E-16B9-8E85D26B8461";
+createNode file -n "file58";
+	rename -uid "188081BD-4DE3-7AAA-4B75-E0BFB56EF5FD";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture14";
+	rename -uid "9B6F1A0D-49EC-5F51-484E-879CD06366D2";
+createNode file -n "file59";
+	rename -uid "715857E9-4B36-258C-0ED6-9689EDAC0E58";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Emissive.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture15";
+	rename -uid "B740DDD1-4906-1053-A788-D2A0DC880BC1";
+createNode file -n "file60";
+	rename -uid "E4F653C8-452A-2D70-48CA-638A2BF4581C";
+	setAttr ".ail" yes;
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Palm_Tree_Textures-20241205T045511Z-001/Palm_Tree_Textures/Trunk/Maya_Hero_PalmTree_Final_Trunk_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture16";
+	rename -uid "F6BAF7AF-4705-7326-44F3-7B9FA4358F9B";
+createNode bump2d -n "bump2d10";
+	rename -uid "CB9CE985-4C83-851A-104D-4BAFEE2EF76E";
+	setAttr ".vc1" -type "float3" 0 3.9999999e-05 0 ;
+	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
+createNode aiStandardSurface -n "Island_Mat";
+	rename -uid "6C326CF6-4B2C-57AF-BE67-CA9B0D95521B";
+createNode shadingEngine -n "aiStandardSurface2SG";
+	rename -uid "0293D8D4-4853-F841-1575-509F155FA4C3";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
+createNode materialInfo -n "materialInfo11";
+	rename -uid "444011EC-46D3-F19E-9404-E98B86242C04";
+createNode file -n "file61";
+	rename -uid "24182E64-4B94-8C0A-C0AB-64A493174B25";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_BaseColor.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture17";
+	rename -uid "809E1308-4A37-8C10-E819-64ADE3A98975";
+createNode file -n "file62";
+	rename -uid "9275C027-4789-E283-1952-919FC87B67B8";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Metallic.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture18";
+	rename -uid "64B2E0F5-4BE8-C454-8F21-DBBA40439363";
+createNode file -n "file63";
+	rename -uid "15F8EB69-40CF-3C49-BE7C-15A6A4846562";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Roughness.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture19";
+	rename -uid "A1C96290-41CF-2CC7-CB03-179EFD224E49";
+createNode file -n "file64";
+	rename -uid "9E1518CD-4A66-E90B-FD3A-B18B194E8123";
+	setAttr ".ail" yes;
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture20";
+	rename -uid "E408E6AC-4DDF-6286-600D-8BA9F6414AFD";
+createNode bump2d -n "bump2d11";
+	rename -uid "41A049EA-407B-54A6-55BE-FCA09F270E00";
+	setAttr ".vc1" -type "float3" 0 2.9999999e-05 0 ;
+	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
+createNode file -n "file65";
+	rename -uid "B20097AF-4827-2E31-8ABA-B2A1A4DC9103";
+	setAttr ".ftn" -type "string" "D:/``SSD/Rick/Downloads/Island_Textures-20241205T043044Z-001/Island_Textures/VolcanoIsland2_Island_Height.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture21";
+	rename -uid "2816E8F5-4D11-D624-DC05-9AB75B459BF4";
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "A251F650-453A-B7DC-BAB4-FE8D56822D70";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -723.93837228176619 -197.83173793734073 ;
+	setAttr ".tgi[0].vh" -type "double2" 345.10920428571865 635.82921626666109 ;
+	setAttr -s 47 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[0].y" 451.42855834960938;
+	setAttr ".tgi[0].ni[0].nvs" 1923;
+	setAttr ".tgi[0].ni[1].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[1].y" 428.57144165039062;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[2].y" 281.42855834960938;
+	setAttr ".tgi[0].ni[2].nvs" 1923;
+	setAttr ".tgi[0].ni[3].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[3].y" 302.85714721679688;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" 708.5714111328125;
+	setAttr ".tgi[0].ni[4].y" 545.71429443359375;
+	setAttr ".tgi[0].ni[4].nvs" 1923;
+	setAttr ".tgi[0].ni[5].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[5].y" -40;
+	setAttr ".tgi[0].ni[5].nvs" 1923;
+	setAttr ".tgi[0].ni[6].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[6].y" -215.71427917480469;
+	setAttr ".tgi[0].ni[6].nvs" 1923;
+	setAttr ".tgi[0].ni[7].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[7].y" 288.57144165039062;
+	setAttr ".tgi[0].ni[7].nvs" 1923;
+	setAttr ".tgi[0].ni[8].x" -824.28570556640625;
+	setAttr ".tgi[0].ni[8].y" 338.57144165039062;
+	setAttr ".tgi[0].ni[8].nvs" 1923;
+	setAttr ".tgi[0].ni[9].x" -831.4285888671875;
+	setAttr ".tgi[0].ni[9].y" 338.57144165039062;
+	setAttr ".tgi[0].ni[9].nvs" 1923;
+	setAttr ".tgi[0].ni[10].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[10].y" 464.28570556640625;
+	setAttr ".tgi[0].ni[10].nvs" 1923;
+	setAttr ".tgi[0].ni[11].x" -524.28570556640625;
+	setAttr ".tgi[0].ni[11].y" 62.857143402099609;
+	setAttr ".tgi[0].ni[11].nvs" 1923;
+	setAttr ".tgi[0].ni[12].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[12].y" 135.71427917480469;
+	setAttr ".tgi[0].ni[12].nvs" 1923;
+	setAttr ".tgi[0].ni[13].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[13].y" -215.71427917480469;
+	setAttr ".tgi[0].ni[13].nvs" 1923;
+	setAttr ".tgi[0].ni[14].x" -524.28570556640625;
+	setAttr ".tgi[0].ni[14].y" 467.14285278320312;
+	setAttr ".tgi[0].ni[14].nvs" 1923;
+	setAttr ".tgi[0].ni[15].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[15].y" 464.28570556640625;
+	setAttr ".tgi[0].ni[15].nvs" 1923;
+	setAttr ".tgi[0].ni[16].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[16].y" 135.71427917480469;
+	setAttr ".tgi[0].ni[16].nvs" 1923;
+	setAttr ".tgi[0].ni[17].x" -64.285713195800781;
+	setAttr ".tgi[0].ni[17].y" 650;
+	setAttr ".tgi[0].ni[17].nvs" 1923;
+	setAttr ".tgi[0].ni[18].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[18].y" 650;
+	setAttr ".tgi[0].ni[18].nvs" 1923;
+	setAttr ".tgi[0].ni[19].x" -517.14288330078125;
+	setAttr ".tgi[0].ni[19].y" 62.857143402099609;
+	setAttr ".tgi[0].ni[19].nvs" 1923;
+	setAttr ".tgi[0].ni[20].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[20].y" 288.57144165039062;
+	setAttr ".tgi[0].ni[20].nvs" 1923;
+	setAttr ".tgi[0].ni[21].x" 700;
+	setAttr ".tgi[0].ni[21].y" 545.71429443359375;
+	setAttr ".tgi[0].ni[21].nvs" 1923;
+	setAttr ".tgi[0].ni[22].x" -65.714286804199219;
+	setAttr ".tgi[0].ni[22].y" -40;
+	setAttr ".tgi[0].ni[22].nvs" 1923;
+	setAttr ".tgi[0].ni[23].x" -517.14288330078125;
+	setAttr ".tgi[0].ni[23].y" 467.14285278320312;
+	setAttr ".tgi[0].ni[23].nvs" 1923;
+	setAttr ".tgi[0].ni[24].x" 5.7142858505249023;
+	setAttr ".tgi[0].ni[24].y" 568.5714111328125;
+	setAttr ".tgi[0].ni[24].nvs" 2387;
+	setAttr ".tgi[0].ni[25].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[25].y" 654.28570556640625;
+	setAttr ".tgi[0].ni[25].nvs" 1923;
+	setAttr ".tgi[0].ni[26].x" 354.28570556640625;
+	setAttr ".tgi[0].ni[26].y" 568.5714111328125;
+	setAttr ".tgi[0].ni[26].nvs" 1923;
+	setAttr ".tgi[0].ni[27].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[27].y" 632.85711669921875;
+	setAttr ".tgi[0].ni[27].nvs" 1923;
+	setAttr ".tgi[0].ni[28].x" 5.7142858505249023;
+	setAttr ".tgi[0].ni[28].y" 541.4285888671875;
+	setAttr ".tgi[0].ni[28].nvs" 2387;
+	setAttr ".tgi[0].ni[29].x" 354.28570556640625;
+	setAttr ".tgi[0].ni[29].y" 541.4285888671875;
+	setAttr ".tgi[0].ni[29].nvs" 1923;
+	setAttr ".tgi[0].ni[30].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[30].y" 252.85714721679688;
+	setAttr ".tgi[0].ni[30].nvs" 1923;
+	setAttr ".tgi[0].ni[31].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[31].y" 604.28570556640625;
+	setAttr ".tgi[0].ni[31].nvs" 1923;
+	setAttr ".tgi[0].ni[32].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[32].y" 627.14288330078125;
+	setAttr ".tgi[0].ni[32].nvs" 1923;
+	setAttr ".tgi[0].ni[33].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[33].y" 478.57144165039062;
+	setAttr ".tgi[0].ni[33].nvs" 1923;
+	setAttr ".tgi[0].ni[34].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[34].y" 275.71429443359375;
+	setAttr ".tgi[0].ni[34].nvs" 1923;
+	setAttr ".tgi[0].ni[35].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[35].y" 457.14285278320312;
+	setAttr ".tgi[0].ni[35].nvs" 1923;
+	setAttr ".tgi[0].ni[36].x" 27.142856597900391;
+	setAttr ".tgi[0].ni[36].y" 241.42857360839844;
+	setAttr ".tgi[0].ni[36].nvs" 1923;
+	setAttr ".tgi[0].ni[37].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[37].y" -48.571430206298828;
+	setAttr ".tgi[0].ni[37].nvs" 1923;
+	setAttr ".tgi[0].ni[38].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[38].y" -71.428573608398438;
+	setAttr ".tgi[0].ni[38].nvs" 1923;
+	setAttr ".tgi[0].ni[39].x" -280;
+	setAttr ".tgi[0].ni[39].y" 291.42855834960938;
+	setAttr ".tgi[0].ni[39].nvs" 1923;
+	setAttr ".tgi[0].ni[40].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[40].y" 105.71428680419922;
+	setAttr ".tgi[0].ni[40].nvs" 1923;
+	setAttr ".tgi[0].ni[41].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[41].y" 127.14286041259766;
+	setAttr ".tgi[0].ni[41].nvs" 1923;
+	setAttr ".tgi[0].ni[42].x" -915.71429443359375;
+	setAttr ".tgi[0].ni[42].y" -92.857139587402344;
+	setAttr ".tgi[0].ni[42].nvs" 1923;
+	setAttr ".tgi[0].ni[43].x" -301.42855834960938;
+	setAttr ".tgi[0].ni[43].y" -21.428571701049805;
+	setAttr ".tgi[0].ni[43].nvs" 1923;
+	setAttr ".tgi[0].ni[44].x" -608.5714111328125;
+	setAttr ".tgi[0].ni[44].y" -44.285713195800781;
+	setAttr ".tgi[0].ni[44].nvs" 1923;
+	setAttr ".tgi[0].ni[45].x" -587.14288330078125;
+	setAttr ".tgi[0].ni[45].y" 268.57144165039062;
+	setAttr ".tgi[0].ni[45].nvs" 1923;
+	setAttr ".tgi[0].ni[46].x" -915.71429443359375;
+	setAttr ".tgi[0].ni[46].y" -67.142860412597656;
+	setAttr ".tgi[0].ni[46].nvs" 1923;
+createNode renderSetup -n "renderSetup";
+	rename -uid "78E4A9B2-4C69-6F9F-DDEB-B8819A92F4B3";
+createNode renderSetupLayer -n "Crab_Layer";
+	rename -uid "83C40778-434F-9E62-C2BF-2E99B60DF1D8";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	setAttr ".nts" -type "string" "Crab render layers\n";
+createNode renderLayer -n "rs_Crab_Layer";
+	rename -uid "46EFEA08-4E32-B7CC-CEFA-C79EB54C68C1";
+	setAttr ".do" 1;
+createNode collection -n "collection12";
+	rename -uid "1B782C28-4CC5-C859-851F-458830AB60E9";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "collection12Selector";
+	rename -uid "C695A927-4741-8B70-67E8-B185E29EA422";
+	setAttr ".ssl" -type "string" "|Main_Scene:Hermit_Crab_Asset";
+createNode collection -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5";
+	rename -uid "06842D48-4839-E80A-039E-C5B20CCD50A6";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5Selector";
+	rename -uid "F98B3693-42FF-2145-4C3C-7B89D50D8C4B";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:directionalLight1|Lighting_Rig:directionalLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows10";
+	rename -uid "2020162B-4FF2-A6A6-ED0F-01BA478B3747";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode collection -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5";
+	rename -uid "A164DA59-4C4E-9B70-3559-3786E51F70A5";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5Selector";
+	rename -uid "BFC623F8-40EA-1202-EF7B-74862E2D862E";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:aiSkyDomeLight1|Lighting_Rig:aiSkyDomeLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows11";
+	rename -uid "1468EDCB-45B5-B406-F48B-CAB6145A267D";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode renderSetupLayer -n "Flag_Layer";
+	rename -uid "7685AA03-4B60-2E20-FAD1-B5A589753FC3";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	setAttr ".nts" -type "string" "Crab render layers\n";
+createNode renderLayer -n "rs_Flag_Layer";
+	rename -uid "018A1B1F-4FE2-13DD-3E0E-9C8F928AF81E";
+	setAttr ".do" 2;
+createNode collection -n "collection11";
+	rename -uid "8DA8445B-4839-3BC3-EEF9-609AA75199A6";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "collection11Selector";
+	rename -uid "71116F0B-4351-D567-FE63-4BAC8BCCA3DA";
+	setAttr ".ssl" -type "string" "|Flag_Stationary|Flag_Asset";
+createNode collection -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4";
+	rename -uid "582D4D1A-4D84-B2E9-9324-EBB0A02769CE";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4Selector";
+	rename -uid "80AD19A3-4CFF-491C-F4C1-E4BE3664FC82";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:directionalLight1|Lighting_Rig:directionalLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows8";
+	rename -uid "24B60664-49FD-CD9A-2909-59A3C6DE8D7E";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode collection -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4";
+	rename -uid "2A44A8EE-4A10-4D08-2D9A-3D8A28136A22";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4Selector";
+	rename -uid "73E9EDEF-4692-42E8-C5AE-B1AA6148399C";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:aiSkyDomeLight1|Lighting_Rig:aiSkyDomeLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows9";
+	rename -uid "1E8897FB-4E27-5DE5-949C-9D969CAB3463";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode renderSetupLayer -n "PalmTree_Layer";
+	rename -uid "D6B1F24D-4290-EDF1-7616-89846989820E";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	setAttr ".nts" -type "string" "Crab render layers\n";
+createNode renderLayer -n "rs_PalmTree_Layer";
+	rename -uid "6799319F-4BC7-830C-BA1A-6E936C7FF34D";
+	setAttr ".do" 3;
+createNode renderSettingsCollection -n "RenderSettingsCollection";
+	rename -uid "57F25F20-4419-610F-018D-77A6B99343FD";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "RenderSettingsCollectionSelector";
+	rename -uid "CE25286F-4B97-1BC8-E57F-98A8EF65343C";
+	setAttr ".ssl" -type "string" "defaultResolution\ndefaultArnoldDriver\ndefaultArnoldRenderOptions\ndefaultArnoldFilter\ndefaultRenderQuality\ndefaultRenderGlobals";
+	setAttr ".tf" 0;
+createNode absUniqueOverride -n "startFrame1";
+	rename -uid "1BD699E5-4B12-6D97-8692-AF93B63629C7";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -at "time";
+	setAttr ".atr" -type "string" "startFrame";
+	setAttr ".tgName" -type "string" "defaultRenderGlobals";
+	setAttr ".atv" 1;
+createNode absUniqueOverride -n "endFrame1";
+	rename -uid "56CE6658-49E5-C9BB-D520-3E8E926552E4";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -at "time";
+	setAttr ".atr" -type "string" "endFrame";
+	setAttr ".tgName" -type "string" "defaultRenderGlobals";
+	setAttr ".atv" 1;
+createNode collection -n "collection6";
+	rename -uid "88FA7F86-4C5B-BDF1-1538-C382F3B53332";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "collection6Selector";
+	rename -uid "D555D4AA-4612-6F2B-7DD3-DDB4D025D9A5";
+	setAttr ".ssl" -type "string" "|Main_Scene:Palm_Tree_Asset";
+createNode collection -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1";
+	rename -uid "DCD448E6-4B6C-8178-7C5A-A8B0F880BC09";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1Selector";
+	rename -uid "5E01469E-40B1-DC27-10E9-30AEF93B4649";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:directionalLight1|Lighting_Rig:directionalLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows1";
+	rename -uid "1332B189-4247-55C0-C1B4-E6906C09CDB1";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode collection -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col";
+	rename -uid "F44D39B2-483D-779F-3265-35AEBFF883A2";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_colSelector";
+	rename -uid "79164FEB-4156-B8B7-5290-F29DDEFF91FF";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:aiSkyDomeLight1|Lighting_Rig:aiSkyDomeLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows2";
+	rename -uid "46AE2C94-41DD-C437-9616-4BA497CE86B4";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode renderSetupLayer -n "Island_Start_Layer";
+	rename -uid "C8244103-458A-4CA8-4C61-DC810079AF2C";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	setAttr ".nts" -type "string" "Crab render layers\n";
+createNode renderLayer -n "rs_Island_Start_Layer";
+	rename -uid "F4A1CC49-4D8C-16F2-76A8-389874A9ACA5";
+	setAttr ".do" 4;
+createNode renderSettingsCollection -n "RenderSettingsCollection1";
+	rename -uid "D930D9EA-4AE1-13CC-D00E-5794A9C6253F";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "RenderSettingsCollection1Selector";
+	rename -uid "56B7BE44-47FA-27DF-7FAD-04B2CDAE07C3";
+	setAttr ".ssl" -type "string" "defaultResolution\ndefaultArnoldDriver\ndefaultArnoldRenderOptions\ndefaultArnoldFilter\ndefaultRenderQuality\ndefaultRenderGlobals";
+	setAttr ".tf" 0;
+createNode absUniqueOverride -n "startFrame";
+	rename -uid "F5A30890-4DD8-E7B0-59F5-F0888E0115FD";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -at "time";
+	setAttr ".atr" -type "string" "startFrame";
+	setAttr ".tgName" -type "string" "defaultRenderGlobals";
+	setAttr ".atv" 1;
+createNode absUniqueOverride -n "endFrame";
+	rename -uid "C9E2922F-4EC3-B160-4FD2-FCBE4E7721A3";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -at "time";
+	setAttr ".atr" -type "string" "endFrame";
+	setAttr ".tgName" -type "string" "defaultRenderGlobals";
+	setAttr ".atv" 1;
+createNode collection -n "collection2";
+	rename -uid "3E534769-4CE2-8727-0715-CB9DF9C6AF4B";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "collection2Selector";
+	rename -uid "78BE6EB4-499E-5C60-6BB8-9A9C19BFC109";
+	setAttr ".ssl" -type "string" "|Main_Scene:Island_Asset";
+createNode collection -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col";
+	rename -uid "9A10F649-4A8E-C1FC-1F7C-5CB0CCAAC4A1";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_colSelector";
+	rename -uid "22C4CCE8-42E6-F914-A883-0DB2AE682EAF";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:directionalLight1|Lighting_Rig:directionalLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows";
+	rename -uid "051F4FFD-41EC-4CAC-2199-2E834AB4BF2B";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode collection -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1";
+	rename -uid "5BD7F4D2-4ABB-EB70-3DD6-96B6BA6912DD";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1Selector";
+	rename -uid "C20BBA2A-4A25-61F6-229B-5FB95C3D28D8";
+	setAttr ".ssl" -type "string" "|Lighting_Rig:aiSkyDomeLight1|Lighting_Rig:aiSkyDomeLightShape1";
+	setAttr ".tf" 4;
+createNode absOverride -n "aiCastShadows3";
+	rename -uid "17F252EC-4B11-2898-6275-76BD3424C98E";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "aiCastShadows";
+createNode renderSetupLayer -n "Shadow_Layer";
+	rename -uid "5248F497-40C3-BDBB-6227-358978E798F8";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	setAttr ".nts" -type "string" "Crab render layers\n";
+createNode renderLayer -n "rs_Shadow_Layer";
+	rename -uid "69F9F9F3-468A-748E-0272-97941688CD48";
+	setAttr ".do" 7;
+createNode aovCollection -n "AOVCollection";
+	rename -uid "5BC3178A-443E-CEC0-AA35-53A4F87EB040";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "AOVCollectionSelector";
+	rename -uid "21FA975E-4F29-7645-0118-B8AAE28938C0";
+	setAttr ".pat" -type "string" "*";
+	setAttr ".tf" 8;
+	setAttr ".cfv" -type "string" "aiAOV aiAOVDriver aiAOVFilter";
+createNode aovChildCollection -n "AO";
+	rename -uid "5733913F-4556-5CC5-87EB-B288310CD659";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode arnoldAOVChildSelector -n "AOSelector";
+	rename -uid "C66C90C5-4EB6-9BEC-5A78-9E8C476C3F55";
+	setAttr ".ann" -type "string" "aiAOV_AO";
+createNode absOverride -n "enabled";
+	rename -uid "A8F00447-45FB-E4BD-FE9B-AD95685ED9E6";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "enabled";
+createNode aovChildCollection -n "Z";
+	rename -uid "25D55090-4B88-A062-7766-F693B98733A4";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode arnoldAOVChildSelector -n "ZSelector";
+	rename -uid "0228712E-464F-B1B7-B127-00A7014BFB12";
+	setAttr ".ann" -type "string" "aiAOV_Z";
+createNode absOverride -n "enabled1";
+	rename -uid "B8D64176-4450-40F3-DA99-F38D4F61EA4D";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "enabled";
+createNode aovChildCollection -n "diffuse";
+	rename -uid "CCA85236-4912-5F41-992F-3BA908950863";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode arnoldAOVChildSelector -n "diffuseSelector";
+	rename -uid "8A9E8D77-4A3A-C1B1-7FFB-77A76D8F5ACC";
+	setAttr ".ann" -type "string" "aiAOV_diffuse";
+createNode absOverride -n "enabled2";
+	rename -uid "FFE1197A-4910-6B41-839F-FE8F92FFA88F";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "enabled";
+createNode aovChildCollection -n "specular";
+	rename -uid "317D779D-419C-2830-922C-628460FE4D9F";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode arnoldAOVChildSelector -n "specularSelector";
+	rename -uid "D8596DAF-40CD-DF81-38D6-2293CD1AAB35";
+	setAttr ".ann" -type "string" "aiAOV_specular";
+createNode absOverride -n "enabled3";
+	rename -uid "F49991BB-4960-3A66-F86A-39814EB12DEF";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "atv" -ln "attrValue" -min 0 -max 1 -at "bool";
+	setAttr ".atr" -type "string" "enabled";
+createNode collection -n "collection13";
+	rename -uid "D29ABE39-4021-9269-1BF6-36B70A8635D7";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode simpleSelector -n "collection13Selector";
+	rename -uid "002C03D2-4C2A-2ED7-75EC-3BBD8E3AAA92";
+	setAttr ".ssl" -type "string" "|Flag_Stationary|Flag_Asset\n|Main_Scene:Hermit_Crab_Asset\n|Main_Scene:Palm_Tree_Asset\n|Main_Scene:Island_Asset";
+createNode materialOverride -n "materialOverride1";
+	rename -uid "9294F6FC-4FBD-F23B-D5E1-E18DDFF4AF1D";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "nts" -ln "notes" -dt "string";
+	addAttr -ci true -sn "lc" -ln "labelColor" -dt "string";
+	addAttr -ci true -sn "imp" -ln "imported" -dv 1 -min 0 -max 1 -at "bool";
+createNode aiShadowMatte -n "aiShadowMatte1";
+	rename -uid "14D937DA-4025-5BD8-9057-34933035AC66";
+createNode shadingEngine -n "aiShadowMatte1SG";
+	rename -uid "8A4FDA08-4E53-2396-CA9D-FEA927758172";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
+createNode materialInfo -n "materialInfo12";
+	rename -uid "87239FD2-4934-718E-4494-DA90E4A764B2";
 select -ne :time1;
-	setAttr ".o" 47;
-	setAttr ".unw" 47;
+	setAttr ".o" 155;
+	setAttr ".unw" 155;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -10952,32 +11909,71 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 24 ".st";
+	setAttr -s 43 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 21 ".s";
+	setAttr -s 38 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 91 ".u";
+	setAttr -s 181 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 7 ".r";
+	setAttr -s 25 ".r";
 select -ne :lightList1;
+	setAttr -s 3 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 90 ".tx";
+	setAttr -s 157 ".tx";
 select -ne :initialShadingGroup;
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 select -ne :initialParticleSE;
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ro" yes;
+	setAttr -s 4 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "AO";
+	setAttr ".aovs[1].aov_name" -type "string" "Z";
+	setAttr ".aovs[2].aov_name" -type "string" "diffuse";
+	setAttr ".aovs[3].aov_name" -type "string" "specular";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_AO","aiCustomAOVs[0]","ai_aov_Z","aiCustomAOVs[1]"
+		,"ai_aov_diffuse","aiCustomAOVs[2]","ai_aov_specular","aiCustomAOVs[3]"} ;
 select -ne :defaultRenderGlobals;
 	addAttr -ci true -h true -sn "dss" -ln "defaultSurfaceShader" -dt "string";
 	setAttr ".ren" -type "string" "arnold";
+	setAttr ".sdf" -type "string" "";
 	setAttr ".outf" 51;
 	setAttr ".imfkey" -type "string" "exr";
+	setAttr ".an" yes;
+	setAttr ".ef" 288;
+	setAttr ".ofe" -type "string" "";
+	setAttr ".efe" -type "string" "";
+	setAttr ".oft" -type "string" "";
+	setAttr ".pff" yes;
+	setAttr ".ifp" -type "string" "";
+	setAttr ".rv" -type "string" "V_03_Test";
+	setAttr ".pram" -type "string" "";
+	setAttr ".poam" -type "string" "";
+	setAttr ".prlm" -type "string" "";
+	setAttr ".polm" -type "string" "";
+	setAttr ".prm" -type "string" "";
+	setAttr ".pom" -type "string" "";
+	setAttr ".pfrm" -type "string" "";
+	setAttr ".pfom" -type "string" "";
+	setAttr ".hbl" -type "string" "";
 	setAttr ".dss" -type "string" "lambert1";
 select -ne :defaultResolution;
+	setAttr ".w" 1920;
+	setAttr ".h" 1080;
 	setAttr ".pa" 1;
+	setAttr ".dar" 1.7769999504089355;
 select -ne :defaultLightSet;
+	setAttr -s 3 ".dsm";
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "C:/Program Files/Autodesk/Maya2022/resources/OCIO-configs/Maya2022-default/config.ocio";
@@ -10991,15 +11987,15 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :defaultHideFaceDataSet;
-	setAttr -s 2 ".dnsm";
+	setAttr -s 4 ".dnsm";
 select -ne :ikSystem;
-	setAttr -s 4 ".sol";
-connectAttr "Main_SceneRN.phl[431]" "set3.dsm" -na;
-connectAttr "NO_CLICK.di" "Main_SceneRN.phl[458]";
-connectAttr "NO_CLICK.di" "Main_SceneRN.phl[459]";
-connectAttr "NO_CLICK.di" "Main_SceneRN.phl[460]";
-connectAttr "NO_CLICK.di" "Main_SceneRN.phl[461]";
-connectAttr "NO_CLICK.di" "Main_SceneRN.phl[462]";
+	setAttr -s 8 ".sol";
+connectAttr "Main_SceneRN.phl[437]" "aiStandardSurface2SG.dsm" -na;
+connectAttr "NO_CLICK.di" "Main_SceneRN.phl[464]";
+connectAttr "NO_CLICK.di" "Main_SceneRN.phl[465]";
+connectAttr "NO_CLICK.di" "Main_SceneRN.phl[466]";
+connectAttr "NO_CLICK.di" "Main_SceneRN.phl[467]";
+connectAttr "NO_CLICK.di" "Main_SceneRN.phl[468]";
 connectAttr "Transform_Ctrl_L_LegsIKFK.o" "Main_SceneRN.phl[31]";
 connectAttr "Transform_Ctrl_R_LegsIKFK.o" "Main_SceneRN.phl[32]";
 connectAttr "Transform_Ctrl_translateY.o" "Main_SceneRN.phl[33]";
@@ -11402,34 +12398,37 @@ connectAttr "Shell_05_FK_Jnt_fk_ctrl_translateZ.o" "Main_SceneRN.phl[425]";
 connectAttr "Shell_05_FK_Jnt_fk_ctrl_rotateX.o" "Main_SceneRN.phl[426]";
 connectAttr "Shell_05_FK_Jnt_fk_ctrl_rotateY.o" "Main_SceneRN.phl[427]";
 connectAttr "Shell_05_FK_Jnt_fk_ctrl_rotateZ.o" "Main_SceneRN.phl[428]";
-connectAttr "Main_SceneRN.phl[429]" "set8.dsm" -na;
-connectAttr "Main_SceneRN.phl[430]" "set9.dsm" -na;
-connectAttr "Flag_Stem_scaleX.o" "Main_SceneRN.phl[432]";
-connectAttr "Flag_Stem_scaleY.o" "Main_SceneRN.phl[433]";
-connectAttr "Flag_Stem_scaleZ.o" "Main_SceneRN.phl[434]";
-connectAttr "Flag_Stem_translateY.o" "Main_SceneRN.phl[435]";
-connectAttr "Flag_Stem_translateX.o" "Main_SceneRN.phl[436]";
-connectAttr "Flag_Stem_translateZ.o" "Main_SceneRN.phl[437]";
-connectAttr "Flag_Stem_visibility.o" "Main_SceneRN.phl[438]";
-connectAttr "Flag_Stem_rotateX.o" "Main_SceneRN.phl[439]";
-connectAttr "Flag_Stem_rotateY.o" "Main_SceneRN.phl[440]";
-connectAttr "Flag_Stem_rotateZ.o" "Main_SceneRN.phl[441]";
-connectAttr "transformGeometry3.og" "Main_SceneRN.phl[442]";
-connectAttr "Main_SceneRN.phl[443]" "set2.dsm" -na;
-connectAttr "Flag_Banner_scaleX.o" "Main_SceneRN.phl[444]";
-connectAttr "Flag_Banner_scaleY.o" "Main_SceneRN.phl[445]";
-connectAttr "Flag_Banner_scaleZ.o" "Main_SceneRN.phl[446]";
-connectAttr "Flag_Banner_rotateZ.o" "Main_SceneRN.phl[447]";
-connectAttr "Flag_Banner_rotateX.o" "Main_SceneRN.phl[448]";
-connectAttr "Flag_Banner_rotateY.o" "Main_SceneRN.phl[449]";
-connectAttr "Flag_Banner_translateX.o" "Main_SceneRN.phl[450]";
-connectAttr "Flag_Banner_translateY.o" "Main_SceneRN.phl[451]";
-connectAttr "Flag_Banner_translateZ.o" "Main_SceneRN.phl[452]";
-connectAttr "Flag_Banner_visibility.o" "Main_SceneRN.phl[453]";
-connectAttr "transformGeometry4.og" "Main_SceneRN.phl[454]";
-connectAttr "Main_SceneRN.phl[455]" "set1.dsm" -na;
-connectAttr "Main_SceneRN.phl[456]" "transformGeometry1.ig";
-connectAttr "Main_SceneRN.phl[457]" "transformGeometry2.ig";
+connectAttr "Main_SceneRN.phl[429]" "Main_SceneRN.phl[430]";
+connectAttr "Main_SceneRN.phl[431]" "Main_SceneRN.phl[432]";
+connectAttr "Main_SceneRN.phl[433]" "Main_SceneRN.phl[434]";
+connectAttr "Main_SceneRN.phl[435]" "aiStandardSurface1SG.dsm" -na;
+connectAttr "Main_SceneRN.phl[436]" "set9.dsm" -na;
+connectAttr "Flag_Stem_scaleX.o" "Main_SceneRN.phl[438]";
+connectAttr "Flag_Stem_scaleY.o" "Main_SceneRN.phl[439]";
+connectAttr "Flag_Stem_scaleZ.o" "Main_SceneRN.phl[440]";
+connectAttr "Flag_Stem_translateY.o" "Main_SceneRN.phl[441]";
+connectAttr "Flag_Stem_translateX.o" "Main_SceneRN.phl[442]";
+connectAttr "Flag_Stem_translateZ.o" "Main_SceneRN.phl[443]";
+connectAttr "Flag_Stem_visibility.o" "Main_SceneRN.phl[444]";
+connectAttr "Flag_Stem_rotateX.o" "Main_SceneRN.phl[445]";
+connectAttr "Flag_Stem_rotateY.o" "Main_SceneRN.phl[446]";
+connectAttr "Flag_Stem_rotateZ.o" "Main_SceneRN.phl[447]";
+connectAttr "transformGeometry3.og" "Main_SceneRN.phl[448]";
+connectAttr "Main_SceneRN.phl[449]" "set2.dsm" -na;
+connectAttr "Flag_Banner_scaleX.o" "Main_SceneRN.phl[450]";
+connectAttr "Flag_Banner_scaleY.o" "Main_SceneRN.phl[451]";
+connectAttr "Flag_Banner_scaleZ.o" "Main_SceneRN.phl[452]";
+connectAttr "Flag_Banner_rotateZ.o" "Main_SceneRN.phl[453]";
+connectAttr "Flag_Banner_rotateX.o" "Main_SceneRN.phl[454]";
+connectAttr "Flag_Banner_rotateY.o" "Main_SceneRN.phl[455]";
+connectAttr "Flag_Banner_translateX.o" "Main_SceneRN.phl[456]";
+connectAttr "Flag_Banner_translateY.o" "Main_SceneRN.phl[457]";
+connectAttr "Flag_Banner_translateZ.o" "Main_SceneRN.phl[458]";
+connectAttr "Flag_Banner_visibility.o" "Main_SceneRN.phl[459]";
+connectAttr "transformGeometry4.og" "Main_SceneRN.phl[460]";
+connectAttr "Main_SceneRN.phl[461]" "set1.dsm" -na;
+connectAttr "Main_SceneRN.phl[462]" "transformGeometry1.ig";
+connectAttr "Main_SceneRN.phl[463]" "transformGeometry2.ig";
 connectAttr "Flag_Stationary_translateX.o" "Flag_Stationary.tx";
 connectAttr "Flag_Stationary_translateY.o" "Flag_Stationary.ty";
 connectAttr "Flag_Stationary_translateZ.o" "Flag_Stationary.tz";
@@ -11440,6 +12439,8 @@ connectAttr "Flag_Stationary_rotateZ.o" "Flag_Stationary.rz";
 connectAttr "Flag_Stationary_scaleX.o" "Flag_Stationary.sx";
 connectAttr "Flag_Stationary_scaleY.o" "Flag_Stationary.sy";
 connectAttr "Flag_Stationary_scaleZ.o" "Flag_Stationary.sz";
+connectAttr "rs_Shadow_Layer.ri" "Flag_Asset.rlio[0]";
+connectAttr "file65.oc" "heightField1.cl";
 connectAttr "Flag_Grp_translateX.o" "Flag_Grp.tx";
 connectAttr "Flag_Grp_translateY.o" "Flag_Grp.ty";
 connectAttr "Flag_Grp_translateZ.o" "Flag_Grp.tz";
@@ -11461,6 +12462,9 @@ relationship "link" ":lightLinker1" "set6.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "set7.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "set8.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "set9.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "aiStandardSurface2SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "aiShadowMatte1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "set1.message" ":defaultLightSet.message";
@@ -11472,6 +12476,9 @@ relationship "shadowLink" ":lightLinker1" "set6.message" ":defaultLightSet.messa
 relationship "shadowLink" ":lightLinker1" "set7.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "set8.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "set9.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "aiStandardSurface2SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "aiShadowMatte1SG.message" ":defaultLightSet.message";
 connectAttr "defaultRedshiftPostEffects.msg" ":redshiftOptions.postEffects";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
@@ -11479,6 +12486,10 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 		 -na;
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
+connectAttr "aiAOV_AO.msg" ":defaultArnoldRenderOptions.aovs" -na;
+connectAttr "aiAOV_Z.msg" ":defaultArnoldRenderOptions.aovs" -na;
+connectAttr "aiAOV_diffuse.msg" ":defaultArnoldRenderOptions.aovs" -na;
+connectAttr "aiAOV_specular.msg" ":defaultArnoldRenderOptions.aovs" -na;
 connectAttr "L_Leg_01_Jnt_01_Ctrl_translateX.o" "Main_SceneRN.phl[7]";
 connectAttr "L_Leg_01_Jnt_01_Ctrl_translateY.o" "Main_SceneRN.phl[8]";
 connectAttr "L_Leg_01_Jnt_01_Ctrl_translateZ.o" "Main_SceneRN.phl[9]";
@@ -11904,14 +12915,7 @@ connectAttr "place2dTexture3.vt1" "file17.vt1";
 connectAttr "place2dTexture3.vt2" "file17.vt2";
 connectAttr "place2dTexture3.vt3" "file17.vt3";
 connectAttr "place2dTexture3.vc1" "file17.vc1";
-connectAttr "file13.oa" "Island_Mat.specular_roughness";
-connectAttr "bump2d3.o" "Island_Mat.n";
-connectAttr "file15.oa" "Island_Mat.metalness";
-connectAttr "multiplyDivide3.o" "Island_Mat.base_color";
-connectAttr "Island_Mat.out" "set3.ss";
 connectAttr "set3.msg" "materialInfo3.sg";
-connectAttr "Island_Mat.msg" "materialInfo3.m";
-connectAttr "Island_Mat.msg" "materialInfo3.t" -na;
 connectAttr "file14.oa" "bump2d3.bv";
 connectAttr "file17.oc" "multiplyDivide3.i1";
 connectAttr ":defaultColorMgtGlobals.cme" "file18.cme";
@@ -12586,15 +13590,7 @@ connectAttr "place2dTexture8.vt1" "file47.vt1";
 connectAttr "place2dTexture8.vt2" "file47.vt2";
 connectAttr "place2dTexture8.vt3" "file47.vt3";
 connectAttr "place2dTexture8.vc1" "file47.vc1";
-connectAttr "file42.oa" "Palm_Tree_Trunk_Mat.specular_roughness";
-connectAttr "bump2d8.o" "Palm_Tree_Trunk_Mat.n";
-connectAttr "file44.oa" "Palm_Tree_Trunk_Mat.metalness";
-connectAttr "file46.oc" "Palm_Tree_Trunk_Mat.emission_color";
-connectAttr "multiplyDivide8.o" "Palm_Tree_Trunk_Mat.base_color";
-connectAttr "Palm_Tree_Trunk_Mat.out" "set8.ss";
 connectAttr "set8.msg" "materialInfo8.sg";
-connectAttr "Palm_Tree_Trunk_Mat.msg" "materialInfo8.m";
-connectAttr "Palm_Tree_Trunk_Mat.msg" "materialInfo8.t" -na;
 connectAttr "file43.oa" "bump2d8.bv";
 connectAttr "file47.oc" "multiplyDivide8.i1";
 connectAttr ":defaultColorMgtGlobals.cme" "file48.cme";
@@ -12740,49 +13736,649 @@ connectAttr "Palm_Tree_Leaves_Mat.msg" "materialInfo9.m";
 connectAttr "Palm_Tree_Leaves_Mat.msg" "materialInfo9.t" -na;
 connectAttr "file49.oa" "bump2d9.bv";
 connectAttr "file53.oc" "multiplyDivide9.i1";
-connectAttr "file31.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
-connectAttr "file36.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
-		;
-connectAttr "set7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
-		;
-connectAttr "file30.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
-		;
-connectAttr "file32.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
-		;
-connectAttr "file41.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
-		;
-connectAttr "bump2d6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
-		;
-connectAttr "place2dTexture6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
-connectAttr "place2dTexture7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
-		;
-connectAttr "file34.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
-		;
-connectAttr "bump2d7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
-		;
-connectAttr "multiplyDivide6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
-		;
-connectAttr "set6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
-		;
-connectAttr "file33.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
-		;
-connectAttr "file35.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
-		;
-connectAttr "file40.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
-		;
-connectAttr "file37.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
-		;
-connectAttr "file38.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
-		;
-connectAttr "multiplyDivide7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
-		;
-connectAttr "file39.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
-		;
 connectAttr "layerManager.dli[1]" "NO_CLICK.id";
 connectAttr "transformGeometry1.og" "transformGeometry3.ig";
 connectAttr "transformGeometry2.og" "transformGeometry4.ig";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_AO.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_AO.out[0].ftr";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_Z.out[0].drvr";
+connectAttr "aiAOVFilter1.msg" "aiAOV_Z.out[0].ftr";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_diffuse.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_diffuse.out[0].ftr";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_specular.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_specular.out[0].ftr";
+connectAttr ":defaultColorMgtGlobals.cme" "file54.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file54.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file54.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file54.ws";
+connectAttr "place2dTexture10.c" "file54.c";
+connectAttr "place2dTexture10.tf" "file54.tf";
+connectAttr "place2dTexture10.rf" "file54.rf";
+connectAttr "place2dTexture10.mu" "file54.mu";
+connectAttr "place2dTexture10.mv" "file54.mv";
+connectAttr "place2dTexture10.s" "file54.s";
+connectAttr "place2dTexture10.wu" "file54.wu";
+connectAttr "place2dTexture10.wv" "file54.wv";
+connectAttr "place2dTexture10.re" "file54.re";
+connectAttr "place2dTexture10.of" "file54.of";
+connectAttr "place2dTexture10.r" "file54.ro";
+connectAttr "place2dTexture10.n" "file54.n";
+connectAttr "place2dTexture10.vt1" "file54.vt1";
+connectAttr "place2dTexture10.vt2" "file54.vt2";
+connectAttr "place2dTexture10.vt3" "file54.vt3";
+connectAttr "place2dTexture10.vc1" "file54.vc1";
+connectAttr "place2dTexture10.o" "file54.uv";
+connectAttr "place2dTexture10.ofs" "file54.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file55.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file55.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file55.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file55.ws";
+connectAttr "place2dTexture11.c" "file55.c";
+connectAttr "place2dTexture11.tf" "file55.tf";
+connectAttr "place2dTexture11.rf" "file55.rf";
+connectAttr "place2dTexture11.mu" "file55.mu";
+connectAttr "place2dTexture11.mv" "file55.mv";
+connectAttr "place2dTexture11.s" "file55.s";
+connectAttr "place2dTexture11.wu" "file55.wu";
+connectAttr "place2dTexture11.wv" "file55.wv";
+connectAttr "place2dTexture11.re" "file55.re";
+connectAttr "place2dTexture11.of" "file55.of";
+connectAttr "place2dTexture11.r" "file55.ro";
+connectAttr "place2dTexture11.n" "file55.n";
+connectAttr "place2dTexture11.vt1" "file55.vt1";
+connectAttr "place2dTexture11.vt2" "file55.vt2";
+connectAttr "place2dTexture11.vt3" "file55.vt3";
+connectAttr "place2dTexture11.vc1" "file55.vc1";
+connectAttr "place2dTexture11.o" "file55.uv";
+connectAttr "place2dTexture11.ofs" "file55.fs";
+connectAttr "file56.oc" "Palm_Tree_Trunk.base_color";
+connectAttr "file57.oa" "Palm_Tree_Trunk.metalness";
+connectAttr "file58.oa" "Palm_Tree_Trunk.specular_roughness";
+connectAttr "file59.oc" "Palm_Tree_Trunk.emission_color";
+connectAttr "bump2d10.o" "Palm_Tree_Trunk.n";
+connectAttr "Palm_Tree_Trunk.out" "aiStandardSurface1SG.ss";
+connectAttr "aiStandardSurface1SG.msg" "materialInfo10.sg";
+connectAttr "Palm_Tree_Trunk.msg" "materialInfo10.m";
+connectAttr "Palm_Tree_Trunk.msg" "materialInfo10.t" -na;
+connectAttr ":defaultColorMgtGlobals.cme" "file56.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file56.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file56.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file56.ws";
+connectAttr "place2dTexture12.c" "file56.c";
+connectAttr "place2dTexture12.tf" "file56.tf";
+connectAttr "place2dTexture12.rf" "file56.rf";
+connectAttr "place2dTexture12.mu" "file56.mu";
+connectAttr "place2dTexture12.mv" "file56.mv";
+connectAttr "place2dTexture12.s" "file56.s";
+connectAttr "place2dTexture12.wu" "file56.wu";
+connectAttr "place2dTexture12.wv" "file56.wv";
+connectAttr "place2dTexture12.re" "file56.re";
+connectAttr "place2dTexture12.of" "file56.of";
+connectAttr "place2dTexture12.r" "file56.ro";
+connectAttr "place2dTexture12.n" "file56.n";
+connectAttr "place2dTexture12.vt1" "file56.vt1";
+connectAttr "place2dTexture12.vt2" "file56.vt2";
+connectAttr "place2dTexture12.vt3" "file56.vt3";
+connectAttr "place2dTexture12.vc1" "file56.vc1";
+connectAttr "place2dTexture12.o" "file56.uv";
+connectAttr "place2dTexture12.ofs" "file56.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file57.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file57.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file57.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file57.ws";
+connectAttr "place2dTexture13.c" "file57.c";
+connectAttr "place2dTexture13.tf" "file57.tf";
+connectAttr "place2dTexture13.rf" "file57.rf";
+connectAttr "place2dTexture13.mu" "file57.mu";
+connectAttr "place2dTexture13.mv" "file57.mv";
+connectAttr "place2dTexture13.s" "file57.s";
+connectAttr "place2dTexture13.wu" "file57.wu";
+connectAttr "place2dTexture13.wv" "file57.wv";
+connectAttr "place2dTexture13.re" "file57.re";
+connectAttr "place2dTexture13.of" "file57.of";
+connectAttr "place2dTexture13.r" "file57.ro";
+connectAttr "place2dTexture13.n" "file57.n";
+connectAttr "place2dTexture13.vt1" "file57.vt1";
+connectAttr "place2dTexture13.vt2" "file57.vt2";
+connectAttr "place2dTexture13.vt3" "file57.vt3";
+connectAttr "place2dTexture13.vc1" "file57.vc1";
+connectAttr "place2dTexture13.o" "file57.uv";
+connectAttr "place2dTexture13.ofs" "file57.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file58.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file58.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file58.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file58.ws";
+connectAttr "place2dTexture14.c" "file58.c";
+connectAttr "place2dTexture14.tf" "file58.tf";
+connectAttr "place2dTexture14.rf" "file58.rf";
+connectAttr "place2dTexture14.mu" "file58.mu";
+connectAttr "place2dTexture14.mv" "file58.mv";
+connectAttr "place2dTexture14.s" "file58.s";
+connectAttr "place2dTexture14.wu" "file58.wu";
+connectAttr "place2dTexture14.wv" "file58.wv";
+connectAttr "place2dTexture14.re" "file58.re";
+connectAttr "place2dTexture14.of" "file58.of";
+connectAttr "place2dTexture14.r" "file58.ro";
+connectAttr "place2dTexture14.n" "file58.n";
+connectAttr "place2dTexture14.vt1" "file58.vt1";
+connectAttr "place2dTexture14.vt2" "file58.vt2";
+connectAttr "place2dTexture14.vt3" "file58.vt3";
+connectAttr "place2dTexture14.vc1" "file58.vc1";
+connectAttr "place2dTexture14.o" "file58.uv";
+connectAttr "place2dTexture14.ofs" "file58.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file59.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file59.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file59.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file59.ws";
+connectAttr "place2dTexture15.c" "file59.c";
+connectAttr "place2dTexture15.tf" "file59.tf";
+connectAttr "place2dTexture15.rf" "file59.rf";
+connectAttr "place2dTexture15.mu" "file59.mu";
+connectAttr "place2dTexture15.mv" "file59.mv";
+connectAttr "place2dTexture15.s" "file59.s";
+connectAttr "place2dTexture15.wu" "file59.wu";
+connectAttr "place2dTexture15.wv" "file59.wv";
+connectAttr "place2dTexture15.re" "file59.re";
+connectAttr "place2dTexture15.of" "file59.of";
+connectAttr "place2dTexture15.r" "file59.ro";
+connectAttr "place2dTexture15.n" "file59.n";
+connectAttr "place2dTexture15.vt1" "file59.vt1";
+connectAttr "place2dTexture15.vt2" "file59.vt2";
+connectAttr "place2dTexture15.vt3" "file59.vt3";
+connectAttr "place2dTexture15.vc1" "file59.vc1";
+connectAttr "place2dTexture15.o" "file59.uv";
+connectAttr "place2dTexture15.ofs" "file59.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file60.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file60.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file60.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file60.ws";
+connectAttr "place2dTexture16.c" "file60.c";
+connectAttr "place2dTexture16.tf" "file60.tf";
+connectAttr "place2dTexture16.rf" "file60.rf";
+connectAttr "place2dTexture16.mu" "file60.mu";
+connectAttr "place2dTexture16.mv" "file60.mv";
+connectAttr "place2dTexture16.s" "file60.s";
+connectAttr "place2dTexture16.wu" "file60.wu";
+connectAttr "place2dTexture16.wv" "file60.wv";
+connectAttr "place2dTexture16.re" "file60.re";
+connectAttr "place2dTexture16.of" "file60.of";
+connectAttr "place2dTexture16.r" "file60.ro";
+connectAttr "place2dTexture16.n" "file60.n";
+connectAttr "place2dTexture16.vt1" "file60.vt1";
+connectAttr "place2dTexture16.vt2" "file60.vt2";
+connectAttr "place2dTexture16.vt3" "file60.vt3";
+connectAttr "place2dTexture16.vc1" "file60.vc1";
+connectAttr "place2dTexture16.o" "file60.uv";
+connectAttr "place2dTexture16.ofs" "file60.fs";
+connectAttr "file60.oa" "bump2d10.bv";
+connectAttr "file61.oc" "Island_Mat.base_color";
+connectAttr "file62.oa" "Island_Mat.metalness";
+connectAttr "file63.oa" "Island_Mat.specular_roughness";
+connectAttr "bump2d11.o" "Island_Mat.n";
+connectAttr "Island_Mat.out" "aiStandardSurface2SG.ss";
+connectAttr "aiStandardSurface2SG.msg" "materialInfo11.sg";
+connectAttr "Island_Mat.msg" "materialInfo11.m";
+connectAttr "Island_Mat.msg" "materialInfo11.t" -na;
+connectAttr ":defaultColorMgtGlobals.cme" "file61.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file61.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file61.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file61.ws";
+connectAttr "place2dTexture17.c" "file61.c";
+connectAttr "place2dTexture17.tf" "file61.tf";
+connectAttr "place2dTexture17.rf" "file61.rf";
+connectAttr "place2dTexture17.mu" "file61.mu";
+connectAttr "place2dTexture17.mv" "file61.mv";
+connectAttr "place2dTexture17.s" "file61.s";
+connectAttr "place2dTexture17.wu" "file61.wu";
+connectAttr "place2dTexture17.wv" "file61.wv";
+connectAttr "place2dTexture17.re" "file61.re";
+connectAttr "place2dTexture17.of" "file61.of";
+connectAttr "place2dTexture17.r" "file61.ro";
+connectAttr "place2dTexture17.n" "file61.n";
+connectAttr "place2dTexture17.vt1" "file61.vt1";
+connectAttr "place2dTexture17.vt2" "file61.vt2";
+connectAttr "place2dTexture17.vt3" "file61.vt3";
+connectAttr "place2dTexture17.vc1" "file61.vc1";
+connectAttr "place2dTexture17.o" "file61.uv";
+connectAttr "place2dTexture17.ofs" "file61.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file62.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file62.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file62.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file62.ws";
+connectAttr "place2dTexture18.c" "file62.c";
+connectAttr "place2dTexture18.tf" "file62.tf";
+connectAttr "place2dTexture18.rf" "file62.rf";
+connectAttr "place2dTexture18.mu" "file62.mu";
+connectAttr "place2dTexture18.mv" "file62.mv";
+connectAttr "place2dTexture18.s" "file62.s";
+connectAttr "place2dTexture18.wu" "file62.wu";
+connectAttr "place2dTexture18.wv" "file62.wv";
+connectAttr "place2dTexture18.re" "file62.re";
+connectAttr "place2dTexture18.of" "file62.of";
+connectAttr "place2dTexture18.r" "file62.ro";
+connectAttr "place2dTexture18.n" "file62.n";
+connectAttr "place2dTexture18.vt1" "file62.vt1";
+connectAttr "place2dTexture18.vt2" "file62.vt2";
+connectAttr "place2dTexture18.vt3" "file62.vt3";
+connectAttr "place2dTexture18.vc1" "file62.vc1";
+connectAttr "place2dTexture18.o" "file62.uv";
+connectAttr "place2dTexture18.ofs" "file62.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file63.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file63.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file63.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file63.ws";
+connectAttr "place2dTexture19.c" "file63.c";
+connectAttr "place2dTexture19.tf" "file63.tf";
+connectAttr "place2dTexture19.rf" "file63.rf";
+connectAttr "place2dTexture19.mu" "file63.mu";
+connectAttr "place2dTexture19.mv" "file63.mv";
+connectAttr "place2dTexture19.s" "file63.s";
+connectAttr "place2dTexture19.wu" "file63.wu";
+connectAttr "place2dTexture19.wv" "file63.wv";
+connectAttr "place2dTexture19.re" "file63.re";
+connectAttr "place2dTexture19.of" "file63.of";
+connectAttr "place2dTexture19.r" "file63.ro";
+connectAttr "place2dTexture19.n" "file63.n";
+connectAttr "place2dTexture19.vt1" "file63.vt1";
+connectAttr "place2dTexture19.vt2" "file63.vt2";
+connectAttr "place2dTexture19.vt3" "file63.vt3";
+connectAttr "place2dTexture19.vc1" "file63.vc1";
+connectAttr "place2dTexture19.o" "file63.uv";
+connectAttr "place2dTexture19.ofs" "file63.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file64.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file64.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file64.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file64.ws";
+connectAttr "place2dTexture20.c" "file64.c";
+connectAttr "place2dTexture20.tf" "file64.tf";
+connectAttr "place2dTexture20.rf" "file64.rf";
+connectAttr "place2dTexture20.mu" "file64.mu";
+connectAttr "place2dTexture20.mv" "file64.mv";
+connectAttr "place2dTexture20.s" "file64.s";
+connectAttr "place2dTexture20.wu" "file64.wu";
+connectAttr "place2dTexture20.wv" "file64.wv";
+connectAttr "place2dTexture20.re" "file64.re";
+connectAttr "place2dTexture20.of" "file64.of";
+connectAttr "place2dTexture20.r" "file64.ro";
+connectAttr "place2dTexture20.n" "file64.n";
+connectAttr "place2dTexture20.vt1" "file64.vt1";
+connectAttr "place2dTexture20.vt2" "file64.vt2";
+connectAttr "place2dTexture20.vt3" "file64.vt3";
+connectAttr "place2dTexture20.vc1" "file64.vc1";
+connectAttr "place2dTexture20.o" "file64.uv";
+connectAttr "place2dTexture20.ofs" "file64.fs";
+connectAttr "file64.oa" "bump2d11.bv";
+connectAttr ":defaultColorMgtGlobals.cme" "file65.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file65.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file65.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file65.ws";
+connectAttr "place2dTexture21.c" "file65.c";
+connectAttr "place2dTexture21.tf" "file65.tf";
+connectAttr "place2dTexture21.rf" "file65.rf";
+connectAttr "place2dTexture21.mu" "file65.mu";
+connectAttr "place2dTexture21.mv" "file65.mv";
+connectAttr "place2dTexture21.s" "file65.s";
+connectAttr "place2dTexture21.wu" "file65.wu";
+connectAttr "place2dTexture21.wv" "file65.wv";
+connectAttr "place2dTexture21.re" "file65.re";
+connectAttr "place2dTexture21.of" "file65.of";
+connectAttr "place2dTexture21.r" "file65.ro";
+connectAttr "place2dTexture21.n" "file65.n";
+connectAttr "place2dTexture21.vt1" "file65.vt1";
+connectAttr "place2dTexture21.vt2" "file65.vt2";
+connectAttr "place2dTexture21.vt3" "file65.vt3";
+connectAttr "place2dTexture21.vc1" "file65.vc1";
+connectAttr "place2dTexture21.o" "file65.uv";
+connectAttr "place2dTexture21.ofs" "file65.fs";
+connectAttr "file62.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "place2dTexture18.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "place2dTexture14.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "file58.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "set7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
+connectAttr "file40.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "multiplyDivide7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+		;
+connectAttr "bump2d7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+		;
+connectAttr "place2dTexture6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+		;
+connectAttr "place2dTexture7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+		;
+connectAttr "file30.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+		;
+connectAttr "file41.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
+		;
+connectAttr "file32.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
+		;
+connectAttr "multiplyDivide6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
+		;
+connectAttr "file37.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
+		;
+connectAttr "file36.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
+		;
+connectAttr "file38.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
+		;
+connectAttr "file39.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
+		;
+connectAttr "file33.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
+		;
+connectAttr "file35.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
+		;
+connectAttr "bump2d6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[20].dn"
+		;
+connectAttr "set6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[21].dn"
+		;
+connectAttr "file34.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[22].dn"
+		;
+connectAttr "file31.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[23].dn"
+		;
+connectAttr "Palm_Tree_Trunk.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[24].dn"
+		;
+connectAttr "file56.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[25].dn"
+		;
+connectAttr "aiStandardSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[26].dn"
+		;
+connectAttr "place2dTexture12.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[27].dn"
+		;
+connectAttr "Island_Mat.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[28].dn"
+		;
+connectAttr "aiStandardSurface2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[29].dn"
+		;
+connectAttr "place2dTexture19.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[30].dn"
+		;
+connectAttr "place2dTexture17.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[31].dn"
+		;
+connectAttr "file61.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[32].dn"
+		;
+connectAttr "file57.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[33].dn"
+		;
+connectAttr "file63.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[34].dn"
+		;
+connectAttr "place2dTexture13.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[35].dn"
+		;
+connectAttr "heightField1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[36].dn"
+		;
+connectAttr "bump2d10.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[37].dn"
+		;
+connectAttr "file60.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[38].dn"
+		;
+connectAttr "file65.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[39].dn"
+		;
+connectAttr "place2dTexture15.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[40].dn"
+		;
+connectAttr "file59.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[41].dn"
+		;
+connectAttr "place2dTexture16.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[42].dn"
+		;
+connectAttr "bump2d11.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[43].dn"
+		;
+connectAttr "file64.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[44].dn"
+		;
+connectAttr "place2dTexture21.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[45].dn"
+		;
+connectAttr "place2dTexture20.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[46].dn"
+		;
+connectAttr "Crab_Layer.msg" "renderSetup.frl";
+connectAttr "Shadow_Layer.msg" "renderSetup.lrl";
+connectAttr "rs_Crab_Layer.msg" "Crab_Layer.lrl";
+connectAttr "renderSetup.lit" "Crab_Layer.pls";
+connectAttr "collection12.msg" "Crab_Layer.cl";
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.msg" "Crab_Layer.ch"
+		;
+connectAttr "renderLayerManager.rlmi[1]" "rs_Crab_Layer.rlid";
+connectAttr "collection12Selector.c" "collection12.sel";
+connectAttr "Crab_Layer.lit" "collection12.pls";
+connectAttr "Crab_Layer.nic" "collection12.pic";
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5Selector.c" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.sel"
+		;
+connectAttr "collection12.nxt" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.prv"
+		;
+connectAttr "Crab_Layer.lit" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.pls"
+		;
+connectAttr "Crab_Layer.nic" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.pic"
+		;
+connectAttr "aiCastShadows10.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.cl"
+		;
+connectAttr "aiCastShadows10.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.ch"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.lit" "aiCastShadows10.pls"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.en" "aiCastShadows10.pen"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5Selector.c" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.sel"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col5.nxt" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.prv"
+		;
+connectAttr "Crab_Layer.lit" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.pls"
+		;
+connectAttr "Crab_Layer.nic" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.pic"
+		;
+connectAttr "aiCastShadows11.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.cl"
+		;
+connectAttr "aiCastShadows11.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.ch"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.lit" "aiCastShadows11.pls"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col5.en" "aiCastShadows11.pen"
+		;
+connectAttr "rs_Flag_Layer.msg" "Flag_Layer.lrl";
+connectAttr "Crab_Layer.nxt" "Flag_Layer.prv";
+connectAttr "renderSetup.lit" "Flag_Layer.pls";
+connectAttr "collection11.msg" "Flag_Layer.cl";
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.msg" "Flag_Layer.ch"
+		;
+connectAttr "renderLayerManager.rlmi[2]" "rs_Flag_Layer.rlid";
+connectAttr "collection11Selector.c" "collection11.sel";
+connectAttr "Flag_Layer.lit" "collection11.pls";
+connectAttr "Flag_Layer.nic" "collection11.pic";
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4Selector.c" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.sel"
+		;
+connectAttr "collection11.nxt" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.prv"
+		;
+connectAttr "Flag_Layer.lit" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.pls"
+		;
+connectAttr "Flag_Layer.nic" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.pic"
+		;
+connectAttr "aiCastShadows8.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.cl"
+		;
+connectAttr "aiCastShadows8.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.ch"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.lit" "aiCastShadows8.pls"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.en" "aiCastShadows8.pen"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4Selector.c" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.sel"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col4.nxt" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.prv"
+		;
+connectAttr "Flag_Layer.lit" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.pls"
+		;
+connectAttr "Flag_Layer.nic" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.pic"
+		;
+connectAttr "aiCastShadows9.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.cl"
+		;
+connectAttr "aiCastShadows9.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.ch"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.lit" "aiCastShadows9.pls"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col4.en" "aiCastShadows9.pen"
+		;
+connectAttr "rs_PalmTree_Layer.msg" "PalmTree_Layer.lrl";
+connectAttr "Flag_Layer.nxt" "PalmTree_Layer.prv";
+connectAttr "renderSetup.lit" "PalmTree_Layer.pls";
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.msg" "PalmTree_Layer.ch"
+		;
+connectAttr "RenderSettingsCollection.msg" "PalmTree_Layer.cl";
+connectAttr "renderLayerManager.rlmi[3]" "rs_PalmTree_Layer.rlid";
+connectAttr "RenderSettingsCollectionSelector.c" "RenderSettingsCollection.sel";
+connectAttr "PalmTree_Layer.lit" "RenderSettingsCollection.pls";
+connectAttr "PalmTree_Layer.nic" "RenderSettingsCollection.pic";
+connectAttr "startFrame1.msg" "RenderSettingsCollection.cl";
+connectAttr "endFrame1.msg" "RenderSettingsCollection.ch";
+connectAttr "RenderSettingsCollection.lit" "startFrame1.pls";
+connectAttr "RenderSettingsCollection.en" "startFrame1.pen";
+connectAttr "startFrame1.nxt" "endFrame1.prv";
+connectAttr "RenderSettingsCollection.lit" "endFrame1.pls";
+connectAttr "RenderSettingsCollection.en" "endFrame1.pen";
+connectAttr "collection6Selector.c" "collection6.sel";
+connectAttr "RenderSettingsCollection.nxt" "collection6.prv";
+connectAttr "PalmTree_Layer.lit" "collection6.pls";
+connectAttr "PalmTree_Layer.nic" "collection6.pic";
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1Selector.c" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.sel"
+		;
+connectAttr "collection6.nxt" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.prv"
+		;
+connectAttr "PalmTree_Layer.lit" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.pls"
+		;
+connectAttr "PalmTree_Layer.nic" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.pic"
+		;
+connectAttr "aiCastShadows1.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.cl"
+		;
+connectAttr "aiCastShadows1.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.ch"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.lit" "aiCastShadows1.pls"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.en" "aiCastShadows1.pen"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_colSelector.c" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.sel"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col1.nxt" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.prv"
+		;
+connectAttr "PalmTree_Layer.lit" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.pls"
+		;
+connectAttr "PalmTree_Layer.nic" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.pic"
+		;
+connectAttr "aiCastShadows2.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.cl"
+		;
+connectAttr "aiCastShadows2.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.ch"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.lit" "aiCastShadows2.pls"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col.en" "aiCastShadows2.pen"
+		;
+connectAttr "rs_Island_Start_Layer.msg" "Island_Start_Layer.lrl";
+connectAttr "PalmTree_Layer.nxt" "Island_Start_Layer.prv";
+connectAttr "renderSetup.lit" "Island_Start_Layer.pls";
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.msg" "Island_Start_Layer.ch"
+		;
+connectAttr "RenderSettingsCollection1.msg" "Island_Start_Layer.cl";
+connectAttr "renderLayerManager.rlmi[4]" "rs_Island_Start_Layer.rlid";
+connectAttr "RenderSettingsCollection1Selector.c" "RenderSettingsCollection1.sel"
+		;
+connectAttr "Island_Start_Layer.lit" "RenderSettingsCollection1.pls";
+connectAttr "Island_Start_Layer.nic" "RenderSettingsCollection1.pic";
+connectAttr "startFrame.msg" "RenderSettingsCollection1.cl";
+connectAttr "endFrame.msg" "RenderSettingsCollection1.ch";
+connectAttr "RenderSettingsCollection1.lit" "startFrame.pls";
+connectAttr "RenderSettingsCollection1.en" "startFrame.pen";
+connectAttr "startFrame.nxt" "endFrame.prv";
+connectAttr "RenderSettingsCollection1.lit" "endFrame.pls";
+connectAttr "RenderSettingsCollection1.en" "endFrame.pen";
+connectAttr "collection2Selector.c" "collection2.sel";
+connectAttr "RenderSettingsCollection1.nxt" "collection2.prv";
+connectAttr "Island_Start_Layer.lit" "collection2.pls";
+connectAttr "Island_Start_Layer.nic" "collection2.pic";
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_colSelector.c" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.sel"
+		;
+connectAttr "collection2.nxt" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.prv"
+		;
+connectAttr "Island_Start_Layer.lit" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.pls"
+		;
+connectAttr "Island_Start_Layer.nic" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.pic"
+		;
+connectAttr "aiCastShadows.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.cl"
+		;
+connectAttr "aiCastShadows.msg" "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.ch"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.lit" "aiCastShadows.pls"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.en" "aiCastShadows.pen"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1Selector.c" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.sel"
+		;
+connectAttr "_Lighting_Rig_directionalLight1_Lighting_Rig_directionalLightShape1_col.nxt" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.prv"
+		;
+connectAttr "Island_Start_Layer.lit" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.pls"
+		;
+connectAttr "Island_Start_Layer.nic" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.pic"
+		;
+connectAttr "aiCastShadows3.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.cl"
+		;
+connectAttr "aiCastShadows3.msg" "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.ch"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.lit" "aiCastShadows3.pls"
+		;
+connectAttr "_Lighting_Rig_aiSkyDomeLight1_Lighting_Rig_aiSkyDomeLightShape1_col1.en" "aiCastShadows3.pen"
+		;
+connectAttr "rs_Shadow_Layer.msg" "Shadow_Layer.lrl";
+connectAttr "Island_Start_Layer.nxt" "Shadow_Layer.prv";
+connectAttr "renderSetup.lit" "Shadow_Layer.pls";
+connectAttr "collection13.msg" "Shadow_Layer.ch";
+connectAttr "AOVCollection.msg" "Shadow_Layer.cl";
+connectAttr "renderLayerManager.rlmi[7]" "rs_Shadow_Layer.rlid";
+connectAttr "AOVCollectionSelector.c" "AOVCollection.sel";
+connectAttr "Shadow_Layer.lit" "AOVCollection.pls";
+connectAttr "Shadow_Layer.nic" "AOVCollection.pic";
+connectAttr "AO.msg" "AOVCollection.cl";
+connectAttr "specular.msg" "AOVCollection.ch";
+connectAttr "AOSelector.c" "AO.sel";
+connectAttr "AOVCollection.lit" "AO.pls";
+connectAttr "AOVCollection.en" "AO.pen";
+connectAttr "Shadow_Layer.nic" "AO.pic";
+connectAttr "enabled.msg" "AO.cl";
+connectAttr "enabled.msg" "AO.ch";
+connectAttr "AOVCollectionSelector.out" "AOSelector.in";
+connectAttr "AO.lit" "enabled.pls";
+connectAttr "AO.en" "enabled.pen";
+connectAttr "ZSelector.c" "Z.sel";
+connectAttr "AO.nxt" "Z.prv";
+connectAttr "AOVCollection.lit" "Z.pls";
+connectAttr "AOVCollection.en" "Z.pen";
+connectAttr "Shadow_Layer.nic" "Z.pic";
+connectAttr "enabled1.msg" "Z.cl";
+connectAttr "enabled1.msg" "Z.ch";
+connectAttr "AOVCollectionSelector.out" "ZSelector.in";
+connectAttr "Z.lit" "enabled1.pls";
+connectAttr "Z.en" "enabled1.pen";
+connectAttr "diffuseSelector.c" "diffuse.sel";
+connectAttr "Z.nxt" "diffuse.prv";
+connectAttr "AOVCollection.lit" "diffuse.pls";
+connectAttr "AOVCollection.en" "diffuse.pen";
+connectAttr "Shadow_Layer.nic" "diffuse.pic";
+connectAttr "enabled2.msg" "diffuse.cl";
+connectAttr "enabled2.msg" "diffuse.ch";
+connectAttr "AOVCollectionSelector.out" "diffuseSelector.in";
+connectAttr "diffuse.lit" "enabled2.pls";
+connectAttr "diffuse.en" "enabled2.pen";
+connectAttr "specularSelector.c" "specular.sel";
+connectAttr "diffuse.nxt" "specular.prv";
+connectAttr "AOVCollection.lit" "specular.pls";
+connectAttr "AOVCollection.en" "specular.pen";
+connectAttr "Shadow_Layer.nic" "specular.pic";
+connectAttr "enabled3.msg" "specular.cl";
+connectAttr "enabled3.msg" "specular.ch";
+connectAttr "AOVCollectionSelector.out" "specularSelector.in";
+connectAttr "specular.lit" "enabled3.pls";
+connectAttr "specular.en" "enabled3.pen";
+connectAttr "collection13Selector.c" "collection13.sel";
+connectAttr "AOVCollection.nxt" "collection13.prv";
+connectAttr "Shadow_Layer.lit" "collection13.pls";
+connectAttr "Shadow_Layer.nic" "collection13.pic";
+connectAttr "materialOverride1.msg" "collection13.cl";
+connectAttr "materialOverride1.msg" "collection13.ch";
+connectAttr "collection13.lit" "materialOverride1.pls";
+connectAttr "collection13.en" "materialOverride1.pen";
+connectAttr "aiShadowMatte1SG.msg" "materialOverride1.atv";
+connectAttr "aiShadowMatte1.out" "aiShadowMatte1SG.ss";
+connectAttr "aiShadowMatte1SG.msg" "materialInfo12.sg";
+connectAttr "aiShadowMatte1.msg" "materialInfo12.m";
+connectAttr "aiShadowMatte1.msg" "materialInfo12.t" -na;
 connectAttr "set1.pa" ":renderPartition.st" -na;
 connectAttr "set2.pa" ":renderPartition.st" -na;
 connectAttr "set3.pa" ":renderPartition.st" -na;
@@ -12792,11 +14388,15 @@ connectAttr "set6.pa" ":renderPartition.st" -na;
 connectAttr "set7.pa" ":renderPartition.st" -na;
 connectAttr "set8.pa" ":renderPartition.st" -na;
 connectAttr "set9.pa" ":renderPartition.st" -na;
+connectAttr "aiStandardSurface1SG.pa" ":renderPartition.st" -na;
+connectAttr "aiStandardSurface2SG.pa" ":renderPartition.st" -na;
+connectAttr "aiShadowMatte1SG.pa" ":renderPartition.st" -na;
 connectAttr "Flag_Banner_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "Flag_Pole_Mat.msg" ":defaultShaderList1.s" -na;
-connectAttr "Island_Mat.msg" ":defaultShaderList1.s" -na;
-connectAttr "Palm_Tree_Trunk_Mat.msg" ":defaultShaderList1.s" -na;
 connectAttr "Palm_Tree_Leaves_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "Palm_Tree_Trunk.msg" ":defaultShaderList1.s" -na;
+connectAttr "Island_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "aiShadowMatte1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRedshiftPostEffects.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
@@ -12825,7 +14425,27 @@ connectAttr "multiplyDivide8.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "place2dTexture9.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bump2d9.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "multiplyDivide9.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture11.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture12.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture13.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture14.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture15.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture16.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "bump2d10.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture17.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture18.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture19.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture20.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "bump2d11.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "heightField1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture21.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_Crab_Layer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_Flag_Layer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_PalmTree_Layer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_Island_Start_Layer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_Shadow_Layer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
@@ -12879,4 +14499,16 @@ connectAttr "file50.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file51.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file52.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file53.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file54.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file55.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file56.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file57.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file58.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file59.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file60.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file61.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file62.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file63.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file64.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file65.msg" ":defaultTextureList1.tx" -na;
 // End of Anim_Lightning.ma
